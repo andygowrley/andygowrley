@@ -1,0 +1,5525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ricoh Triple P Form - Enhanced</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Enhanced Color Palette for Ricoh Brand */
+    :root {
+      --ricoh-red: #ed171f;
+      --ricoh-red-light: #f5ebed;
+      --ricoh-dark: #1a1a1a;
+      --ricoh-gray: #6c757d;
+      
+      /* Enhanced Primary Colors */
+      --primary-color: #0052cc;
+      --primary-hover: #003d99;
+      --primary-light: #e8f1ff;
+      --primary-subtle: #f0f7ff;
+      
+      /* Modern Grays */
+      --gray-50: #fafbfc;
+      --gray-100: #f4f5f7;
+      --gray-200: #e4e6ea;
+      --gray-300: #c1c7d0;
+      --gray-400: #97a0af;
+      --gray-500: #6c757d;
+      --gray-600: #505f79;
+      --gray-700: #42526e;
+      --gray-800: #253858;
+      --gray-900: #091e42;
+      
+      /* Status Colors */
+      --success-color: #00a854;
+      --success-hover: #008a45;
+      --success-light: #e8f5e8;
+      --warning-color: #ff8b00;
+      --warning-light: #fff4e6;
+      --error-color: #de350b;
+      --error-hover: #c4320a;
+      --error-light: #ffebe6;
+      
+      /* Legacy compatibility */
+      --secondary-color: var(--gray-600);
+      --delete-color: var(--error-color);
+      --delete-hover: var(--error-hover);
+      --light-gray: var(--gray-100);
+      --border-color: var(--gray-300);
+      
+      /* Modern Design Elements */
+      --border-radius: 8px;
+      --border-radius-lg: 12px;
+      --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      --box-shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.06);
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      /* Typography */
+      --font-size-xs: 0.75rem;
+      --font-size-sm: 0.875rem;
+      --font-size-base: 1rem;
+      --font-size-lg: 1.125rem;
+      --font-size-xl: 1.25rem;
+      --font-size-2xl: 1.5rem;
+      --font-size-3xl: 1.875rem;
+      
+      --line-height-tight: 1.25;
+      --line-height-base: 1.5;
+      --line-height-relaxed: 1.75;
+    }
+
+    /* Explicit Light Mode for maximum brightness */
+    [data-theme="light"] {
+      --gray-50: #ffffff;
+      --gray-100: #fafbfc;
+      --gray-200: #e4e6ea;
+      --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 4px rgba(0, 0, 0, 0.06);
+      --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    /* 4.7 DARK MODE SUPPORT - DEEP DARK THEME */
+    [data-theme="dark"] {
+      /* Bright blue accents for dark mode */
+      --primary-color: #4da3ff;
+      --primary-hover: #66b3ff;
+      --primary-light: #1a2f4a;
+      --primary-subtle: #0d1b2e;
+      
+      /* Deep dark backgrounds and lighter text */
+      --gray-50: #0a0a0a;
+      --gray-100: #121212;
+      --gray-200: #1e1e1e;
+      --gray-300: #2a2a2a;
+      --gray-400: #404040;
+      --gray-500: #8a8a8a;
+      --gray-600: #a0a0a0;
+      --gray-700: #c0c0c0;
+      --gray-800: #e0e0e0;
+      --gray-900: #f0f0f0;
+      
+      /* Vibrant colors for dark mode */
+      --success-color: #00e676;
+      --success-hover: #00ff88;
+      --success-light: #003d1f;
+      --warning-color: #ffb74d;
+      --warning-light: #4a2f0a;
+      --error-color: #ff5252;
+      --error-hover: #ff6b6b;
+      --error-light: #4a0a0a;
+      
+      --ricoh-red: #ff5555;
+      --ricoh-red-light: #330a0a;
+      
+      /* Deeper shadows for dark mode */
+      --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.5);
+      --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.7), 0 4px 8px rgba(0, 0, 0, 0.5);
+      
+      --border-color: #2a2a2a;
+    }
+
+    /* System preference dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --primary-color: #4da3ff;
+        --primary-hover: #66b3ff;
+        --primary-light: #1a2f4a;
+        --primary-subtle: #0d1b2e;
+        
+        --gray-50: #0a0a0a;
+        --gray-100: #121212;
+        --gray-200: #1e1e1e;
+        --gray-300: #2a2a2a;
+        --gray-400: #404040;
+        --gray-500: #8a8a8a;
+        --gray-600: #a0a0a0;
+        --gray-700: #c0c0c0;
+        --gray-800: #e0e0e0;
+        --gray-900: #f0f0f0;
+        
+        --success-color: #00e676;
+        --success-hover: #00ff88;
+        --success-light: #003d1f;
+        --warning-color: #ffb74d;
+        --warning-light: #4a2f0a;
+        --error-color: #ff5252;
+        --error-hover: #ff6b6b;
+        --error-light: #4a0a0a;
+        
+        --ricoh-red: #ff5555;
+        --ricoh-red-light: #330a0a;
+        
+        --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.5);
+        --box-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.7), 0 4px 8px rgba(0, 0, 0, 0.5);
+        
+        --border-color: #2a2a2a;
+      }
+    }
+    /* ============================================================================
+    DARK MODE READABILITY FIX
+    This section ONLY fixes dark mode text/background contrast issues
+    No other changes are made to the application
+    ============================================================================ */
+
+    /* Fix Help Panel for Dark Mode */
+    #helpPanel {
+    background-color: var(--gray-50);
+    }
+
+    [data-theme="dark"] #helpPanel {
+    background-color: var(--gray-100);
+    color: var(--gray-900);
+    }
+
+    [data-theme="dark"] #helpPanelContent {
+    color: var(--gray-900);
+    }
+
+    [data-theme="dark"] #helpPanelContent p,
+    [data-theme="dark"] #helpPanelContent li,
+    [data-theme="dark"] #helpPanelContent td {
+    color: var(--gray-800);
+    }
+
+    [data-theme="dark"] #helpPanelContent h2 {
+    color: var(--primary-color);
+    }
+
+    [data-theme="dark"] #helpPanelContent h3,
+    [data-theme="dark"] #helpPanelContent h4 {
+    color: var(--gray-900);
+    }
+
+    /* Fix Warning Boxes for Dark Mode */
+    [data-theme="dark"] #helpPanelContent .help-warning {
+    background: #4a3000;
+    color: #ffd699;
+    border-left-color: var(--warning-color);
+    }
+
+    [data-theme="dark"] #helpPanelContent .help-warning strong {
+    color: #ffebb3;
+    }
+
+    /* Fix Tip Boxes for Dark Mode */
+    [data-theme="dark"] #helpPanelContent .help-tip {
+    background: #003d1f;
+    color: #99e6c0;
+    border-left-color: var(--success-color);
+    }
+
+    [data-theme="dark"] #helpPanelContent .help-tip strong {
+    color: #b3f0d1;
+    }
+
+    /* Fix Highlight Boxes for Dark Mode */
+    [data-theme="dark"] #helpPanelContent .help-highlight {
+    background: var(--primary-subtle);
+    color: var(--gray-800);
+    }
+
+    [data-theme="dark"] #helpPanelContent .help-highlight h3 {
+    color: var(--primary-color);
+    }
+
+    /* Fix Modal Header for Dark Mode */
+    .modal-header {
+    background-color: var(--gray-50);
+    }
+
+    [data-theme="dark"] .modal-header {
+    background-color: var(--gray-100);
+    color: var(--gray-900);
+    }
+
+    [data-theme="dark"] .modal-header h2 {
+    color: var(--gray-900);
+    }
+
+    /* Fix Modal Toolbar for Dark Mode */
+    .modal-toolbar {
+    background-color: var(--gray-50);
+    }
+
+    [data-theme="dark"] .modal-toolbar {
+    background-color: var(--gray-100);
+    }
+
+    /* Fix Select Dropdowns for Dark Mode */
+    .filter-container select {
+    background-color: var(--gray-50);
+    color: var(--gray-900);
+    }
+
+    [data-theme="dark"] .filter-container select {
+    background-color: var(--gray-200);
+    color: var(--gray-900);
+    border-color: var(--gray-400);
+    }
+
+    [data-theme="dark"] .filter-container select option {
+    background-color: var(--gray-200);
+    color: var(--gray-900);
+    }
+
+    /* Fix Table Container for Dark Mode */
+    .modal-body .table-container {
+    background-color: var(--gray-50);
+    }
+
+    [data-theme="dark"] .modal-body .table-container {
+    background-color: var(--gray-100);
+    }
+
+    [data-theme="dark"] .modal-body table tbody tr {
+    color: var(--gray-800);
+    }
+
+    /* Fix Record Cards for Dark Mode */
+    .record-card {
+    background-color: var(--gray-50);
+    }
+
+    [data-theme="dark"] .record-card {
+    background-color: var(--gray-100);
+    color: var(--gray-900);
+    }
+
+    [data-theme="dark"] .record-card-title {
+    color: var(--primary-color);
+    }
+
+    [data-theme="dark"] .record-card-subtitle {
+    color: var(--gray-700);
+    }
+
+    [data-theme="dark"] .record-card-label {
+    color: var(--gray-700);
+    }
+
+    [data-theme="dark"] .record-card-value {
+    color: var(--gray-800);
+    }
+
+    /* Fix Close Button for Dark Mode */
+    [data-theme="dark"] .close-btn {
+    color: var(--gray-900);
+    }
+
+    [data-theme="dark"] .close-btn:hover {
+    background-color: var(--gray-200);
+    }
+
+    /* Fix Search Input for Dark Mode */
+    [data-theme="dark"] input[type="text"],
+    [data-theme="dark"] input[type="search"] {
+    background-color: var(--gray-200);
+    color: var(--gray-900);
+    border-color: var(--gray-400);
+    }
+
+    [data-theme="dark"] input[type="text"]::placeholder,
+    [data-theme="dark"] input[type="search"]::placeholder {
+    color: var(--gray-600);
+    }
+
+    /* Fix No Results Message for Dark Mode */
+    [data-theme="dark"] .modal-body p {
+    color: var(--gray-800);
+    }
+
+    /* ============================================================================
+    END OF DARK MODE READABILITY FIX
+    ============================================================================ */
+    /* Enhanced Typography */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+      margin: 0;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--gray-50) 0%, var(--primary-subtle) 100%);
+      color: var(--gray-800);
+      min-height: 100vh;
+      position: relative;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    h1, h2, h3, h4, h5 {
+      color: var(--gray-900);
+      font-weight: 600;
+      margin-bottom: 0.5em;
+      line-height: var(--line-height-tight);
+    }
+
+    h1 {
+      font-size: var(--font-size-2xl);
+      text-align: center;
+      margin: 0 0 8px 0;
+      background: linear-gradient(135deg, var(--ricoh-red) 0%, var(--primary-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--gray-200);
+    }
+
+    h2 {
+      font-size: var(--font-size-lg);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--gray-600);
+      font-size: var(--font-size-sm);
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    /* Optimized Container for Smaller Screens */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 12px;
+    }
+
+    /* 4.7 DARK MODE TOGGLE BUTTON */
+    #themeToggle {
+      position: fixed;
+      top: 20px;
+      right: 80px;
+      background: var(--gray-100);
+      border: 2px solid var(--border-color);
+      cursor: pointer;
+      font-size: 20px;
+      color: var(--gray-800);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--box-shadow-lg);
+      transition: var(--transition);
+      z-index: 500;
+    }
+
+    #themeToggle:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 82, 204, 0.3);
+      background: var(--gray-200);
+    }
+
+    /* Enhanced Help Button */
+    #helpBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      color: white;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--box-shadow-lg);
+      transition: var(--transition);
+      z-index: 500;
+    }
+
+    #helpBtn:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 82, 204, 0.4);
+    }
+
+    /* Enhanced Help Panel */
+    #helpPanel {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 600px;
+      max-width: 90%;
+      height: 100%;
+      max-height: 100vh;
+      background-color: var(--gray-50);
+      border-left: 1px solid var(--gray-300);
+      border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      transition: right 0.3s ease-in-out;
+      color: var(--gray-800);
+      flex-direction: column;
+    }
+
+    #helpPanelHeader {
+      cursor: move;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+      color: white;
+      padding: 16px 20px;
+      border-bottom: none;
+      border-radius: var(--border-radius-lg) 0 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      z-index: 1001;
+    }
+
+    #helpPanelHeader h3 {
+      margin: 0;
+      font-size: 1.2em;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+      color: white;
+    }
+
+    #helpPanelClose {
+      cursor: pointer;
+      font-size: 1.8em;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.8);
+      padding: 0 8px;
+      transition: color 0.2s ease;
+      border-radius: 4px;
+    }
+
+    #helpPanelClose:hover {
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    #helpPanelContent {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 0;
+      position: relative;
+    }
+
+    #helpPanelContent::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    #helpPanelContent::-webkit-scrollbar-track {
+      background: var(--gray-100);
+      border-radius: 4px;
+    }
+
+    #helpPanelContent::-webkit-scrollbar-thumb {
+      background: var(--gray-400);
+      border-radius: 4px;
+    }
+
+    #helpPanelContent::-webkit-scrollbar-thumb:hover {
+      background: var(--gray-500);
+    }
+
+    #helpPanelContent .content-wrapper {
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    #helpPanelContent h2, #helpPanelContent h3, #helpPanelContent h4 {
+      text-align: left;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    #helpPanelContent h2 {
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--gray-200);
+      padding-bottom: 8px;
+    }
+
+    #helpPanelContent h3 {
+      color: var(--gray-700);
+    }
+
+    #helpPanelContent a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    #helpPanelContent a:hover {
+      text-decoration: underline;
+    }
+
+    #helpPanelContent ul, #helpPanelContent ol {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    #helpPanelContent li {
+      margin: 5px 0;
+    }
+
+    #helpPanelContent .help-highlight {
+      background: var(--primary-light);
+      padding: 16px;
+      border-radius: var(--border-radius);
+      margin: 16px 0;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    #helpPanelContent .help-highlight h3 {
+      margin-top: 0;
+      color: var(--primary-color);
+    }
+
+    #helpPanelContent .help-warning {
+      background: var(--warning-light);
+      padding: 12px;
+      border-radius: var(--border-radius);
+      margin: 12px 0;
+      border-left: 4px solid var(--warning-color);
+      color: #856404;
+    }
+
+    #helpPanelContent .help-tip {
+      background: var(--success-light);
+      padding: 12px;
+      border-radius: var(--border-radius);
+      margin: 12px 0;
+      border-left: 4px solid var(--success-color);
+      color: #155724;
+    }
+
+    /* Enhanced Card Design */
+    .card {
+      background: var(--gray-100);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--box-shadow);
+      margin-bottom: 20px;
+      border: 1px solid var(--gray-200);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: var(--box-shadow-lg);
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+      color: white;
+      padding: 16px 20px;
+      border-bottom: none;
+    }
+
+    .card-header h2 {
+      margin: 0;
+      color: white;
+      font-size: var(--font-size-lg);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+    }
+
+    .card-body {
+      padding: 20px;
+      background: var(--gray-50);
+    }
+    }
+
+    /* Optimized Form Layout for Smaller Screens */
+    #recordForm {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    /* Responsive Form Sections */
+    @media (min-width: 768px) {
+      #recordForm {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      
+      .form-section.full-width {
+        grid-column: span 2;
+      }
+    }
+
+    .form-section {
+      background: var(--gray-50);
+      border-radius: var(--border-radius);
+      padding: 16px;
+      border-left: 4px solid var(--primary-color);
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .form-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .form-section-title {
+      font-weight: 600;
+      font-size: var(--font-size-sm);
+      margin-bottom: 12px;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    /* Enhanced Form Controls */
+    #recordForm label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 500;
+      color: var(--gray-700);
+      font-size: var(--font-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    #recordForm input, 
+    #recordForm textarea, 
+    #recordForm select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid var(--gray-200);
+      border-radius: var(--border-radius);
+      font-size: var(--font-size-sm);
+      transition: var(--transition);
+      background-color: var(--gray-100);
+      color: var(--gray-900);
+      box-sizing: border-box;
+    }
+
+    #recordForm input:focus, 
+    #recordForm textarea:focus, 
+    #recordForm select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    #recordForm input:required,
+    #recordForm select:required {
+      background-image: linear-gradient(45deg, transparent, transparent 50%, #ff000030 50%, #ff000030);
+      background-position: top right;
+      background-repeat: no-repeat;
+      background-size: 5px 5px;
+    }
+
+    /* Modern Button Design */
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: var(--font-size-sm);
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+      color: white;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    button:hover::before {
+      left: 100%;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 82, 204, 0.4);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    /* 4.4 RIPPLE EFFECT ON BUTTON CLICK */
+    button::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    button:active::after {
+      width: 300px;
+      height: 300px;
+    }
+
+    .delete-btn {
+      background: linear-gradient(135deg, var(--error-color) 0%, var(--error-hover) 100%);
+      padding: 6px 8px;
+      font-size: var(--font-size-xs);
+    }
+
+    .delete-btn:hover {
+      box-shadow: 0 4px 12px rgba(222, 53, 11, 0.4);
+    }
+
+    .edit-btn {
+      background: linear-gradient(135deg, var(--success-color) 0%, var(--success-hover) 100%);
+      padding: 6px 8px;
+      font-size: var(--font-size-xs);
+    }
+
+    .edit-btn:hover {
+      box-shadow: 0 4px 12px rgba(0, 168, 84, 0.4);
+    }
+
+    .view-btn {
+      background: linear-gradient(135deg, var(--gray-600) 0%, var(--primary-color) 100%);
+      padding: 8px 12px;
+      font-size: 0.9rem;
+    }
+
+    .view-btn:hover {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    }
+
+    .stats-btn {
+      background: linear-gradient(135deg, var(--gray-600) 0%, var(--primary-color) 100%);
+    }
+
+    .stats-btn:hover {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    }
+
+    .btn-icon {
+      margin-right: 5px;
+    }
+
+    .actions-container {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* Button Groups */
+    .button-row {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (min-width: 768px) {
+      .button-row {
+        grid-column: span 2;
+      }
+    }
+
+    /* Enhanced Table Design */
+    #preview {
+      overflow: hidden;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--gray-200);
+      background: var(--gray-50);
+    }
+
+    #previewTable {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--font-size-xs);
+      table-layout: fixed;
+      margin-top: 15px;
+    }
+
+    #previewTable th, 
+    #previewTable td {
+      padding: 8px 6px;
+      text-align: left;
+      border-bottom: 1px solid var(--gray-200);
+      max-width: 120px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* Set specific width for action column */
+    #previewTable th:last-child, 
+    #previewTable td:last-child {
+      min-width: 90px;
+      width: 90px;
+    }
+
+    #previewTable td:hover {
+      position: relative;
+    }
+
+    #previewTable td[title]:hover::after {
+      content: attr(title);
+      position: absolute;
+      left: 0;
+      top: 100%;
+      z-index: 999;
+      background-color: var(--gray-800);
+      color: white;
+      padding: 5px 8px;
+      border-radius: 4px;
+      box-shadow: var(--box-shadow-lg);
+      white-space: normal;
+      word-wrap: break-word;
+      max-width: 250px;
+      font-size: 0.9rem;
+    }
+
+    #previewTable th {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+      color: white;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: var(--font-size-xs);
+      white-space: nowrap;
+    }
+
+    #previewTable th:hover {
+      background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-color) 100%);
+    }
+
+    #previewTable tbody tr {
+      transition: var(--transition);
+    }
+
+    #previewTable tbody tr:hover {
+      background: var(--primary-light);
+    }
+
+    #previewTable tbody tr:nth-child(even) {
+      background: var(--gray-50);
+    }
+
+    #previewTable tbody tr:nth-child(even):hover {
+      background: var(--primary-light);
+    }
+
+    /* 4.4 HIGHLIGHT RECENTLY ADDED/EDITED RECORDS */
+    #previewTable tbody tr.recently-modified {
+      animation: highlightRow 2s ease-in-out;
+      background: var(--success-light);
+    }
+
+    @keyframes highlightRow {
+      0% {
+        background: var(--success-color);
+        transform: scale(1.01);
+      }
+      100% {
+        background: var(--success-light);
+        transform: scale(1);
+      }
+    }
+
+    /* Sort Icons */
+    .sort-indicator {
+      margin-left: 5px;
+      font-size: 12px;
+    }
+
+    /* Enhanced Search Bar */
+    #searchBar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      background: var(--gray-50);
+      padding: 16px;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--gray-200);
+    }
+
+    #searchBar .search-input-container {
+      flex: 1;
+      position: relative;
+      min-width: 200px;
+    }
+
+    #searchBar input[type="text"] {
+      padding: 12px 15px 12px 40px;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--border-radius);
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 1rem;
+      transition: var(--transition);
+      margin-bottom: 0;
+    }
+
+    #searchBar input[type="text"]:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    #searchBar .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-400);
+      font-size: var(--font-size-sm);
+    }
+
+    #searchBar .search-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* Enhanced Statistics Panel */
+    #statsPanel {
+      display: none;
+      max-width: 1200px;
+      margin: 0 auto 25px auto;
+      transition: all 0.3s ease;
+    }
+
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .stats-card {
+      background: var(--gray-50);
+      border-radius: var(--border-radius);
+      padding: 16px;
+      border-left: 4px solid var(--primary-color);
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .stats-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--box-shadow-lg);
+    }
+
+    .stats-card.with-icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .stats-card-icon {
+      background-color: var(--primary-light);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      color: var(--primary-color);
+      font-size: 1.2rem;
+    }
+
+    .stats-card-value {
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 4px 0;
+    }
+
+    .stats-card-title {
+      font-size: var(--font-size-xs);
+      color: var(--gray-600);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .stats-card-secondary {
+      font-size: var(--font-size-xs);
+      color: var(--gray-500);
+    }
+
+    .recent-activity-list {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0 0;
+    }
+
+    .recent-activity-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--gray-200);
+      font-size: 0.9rem;
+    }
+
+    .recent-activity-list li:last-child {
+      border-bottom: none;
+    }
+
+    .engineer-activity-container {
+      max-height: 150px;
+      overflow-y: auto;
+      margin-top: 10px;
+    }
+
+    .engineer-activity-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--gray-200);
+      font-size: 0.9rem;
+    }
+
+    .engineer-activity-item:last-child {
+      border-bottom: none;
+    }
+
+    .priority-counts {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+
+    .priority-item {
+      text-align: center;
+    }
+
+    .priority-item-value {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .priority-item.high .priority-item-value {
+      color: var(--error-color);
+    }
+
+    .priority-item.medium .priority-item-value {
+      color: var(--warning-color);
+    }
+
+    .priority-item.low .priority-item-value {
+      color: var(--success-color);
+    }
+
+    .priority-item-label {
+      font-size: 0.8rem;
+      color: var(--gray-600);
+    }
+
+    /* Success Message Enhancement */
+    .success-message {
+      background: var(--success-light);
+      color: var(--success-color);
+      border: 1px solid var(--success-color);
+      border-radius: var(--border-radius);
+      padding: 12px 16px;
+      margin: 16px 0;
+      display: none;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Enhanced Pagination */
+    #pagination {
+      margin-top: 20px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    #pagination button {
+      background-color: white;
+      color: var(--gray-600);
+      border: 1px solid var(--gray-300);
+      padding: 8px 12px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+      min-width: 36px;
+      height: 36px;
+    }
+
+    #pagination button:hover:not(:disabled) {
+      background-color: var(--gray-100);
+      border-color: var(--gray-400);
+    }
+
+    #pagination button:disabled {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+      color: white;
+      cursor: default;
+      border-color: var(--primary-color);
+    }
+
+    /* Toast Notifications */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gray-800);
+      color: white;
+      padding: 12px 24px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow-lg);
+      font-size: var(--font-size-sm);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .toast.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Save Section Styling */
+    #saveSection {
+      max-width: 1200px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    #saveSection .form-group {
+      max-width: 500px;
+      margin: 0 auto 15px auto;
+    }
+
+    #saveSection input[type="text"] {
+      padding: 12px;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--border-radius);
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+
+    /* Enhanced Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: var(--gray-100);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      background-color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--gray-300);
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      text-align: left;
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--gray-800);
+      transition: var(--transition);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .close-btn:hover {
+      background-color: var(--gray-100);
+      transform: scale(1.1);
+    }
+
+    .modal-toolbar {
+      background-color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--gray-300);
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .search-input-container {
+      flex: 1;
+      position: relative;
+      max-width: 500px;
+    }
+
+    .filter-container select {
+      padding: 12px;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      background-color: white;
+      min-width: 150px;
+    }
+
+    .search-btn, .reset-btn {
+      padding: 12px 16px;
+    }
+
+    .view-options {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .view-option-btn {
+      background-color: var(--gray-100);
+      color: var(--gray-800);
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      font-size: 18px;
+    }
+
+    .view-option-btn.active {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+      color: white;
+    }
+
+    .export-btn {
+      background: linear-gradient(135deg, var(--success-color) 0%, var(--success-hover) 100%);
+    }
+
+    .export-btn:hover {
+      box-shadow: 0 4px 12px rgba(0, 168, 84, 0.4);
+    }
+
+    .modal-body {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    /* Enhanced table styles for modal */
+    .modal-body .table-container {
+      background-color: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+
+    .modal-body table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .modal-body table th, 
+    .modal-body table td {
+      padding: 4px 8px;
+      text-align: left;
+      border-bottom: 1px solid var(--gray-300);
+    }
+
+    .modal-body table th {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .modal-body table tbody tr:hover {
+      background-color: var(--primary-light);
+    }
+
+    /* Expanded View Styles */
+    .expanded-view-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .record-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .record-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--box-shadow-lg);
+    }
+
+    .record-card-header {
+      border-bottom: 1px solid var(--gray-300);
+      padding-bottom: 10px;
+    }
+
+    .record-card-title {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .record-card-subtitle {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+    }
+
+    .record-card-body {
+      flex: 1;
+    }
+
+    .record-card-item {
+      margin-bottom: 8px;
+    }
+
+    .record-card-label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gray-600);
+    }
+
+    .record-card-value {
+      font-size: 0.95rem;
+      word-break: break-word;
+    }
+
+    .record-card-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid var(--gray-300);
+    }
+
+    /* Selection Banner Styles */
+    .selection-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--success-color) 100%);
+      color: white;
+      padding: 16px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 900;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      animation: slideDownBanner 0.3s ease;
+    }
+
+    .selection-banner.visible {
+      display: flex;
+    }
+
+    .selection-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: var(--font-size-base);
+    }
+
+    .selection-info .count {
+      background: rgba(255, 255, 255, 0.3);
+      padding: 4px 12px;
+      border-radius: var(--border-radius);
+      font-size: var(--font-size-lg);
+    }
+
+    .selection-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .selection-actions button {
+      background: var(--gray-50);
+      color: var(--primary-color);
+      border: 2px solid white;
+      padding: 8px 16px;
+      font-size: var(--font-size-sm);
+    }
+
+    .selection-actions button:hover {
+      background: var(--gray-50);
+      transform: translateY(-1px);
+    }
+
+    .selection-actions .email-btn {
+      background: var(--success-color);
+      color: white;
+      border-color: var(--success-color);
+    }
+
+    .selection-actions .email-btn:hover {
+      background: var(--success-hover);
+      border-color: var(--success-hover);
+    }
+
+    @keyframes slideDownBanner {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .checkbox-cell {
+      width: 50px;
+      text-align: center;
+      padding: 8px !important;
+    }
+
+    .record-checkbox {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--primary-color);
+    }
+
+    #selectAllCheckbox {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--primary-color);
+    }
+
+    /* Pagination in modal */
+    .modal-pagination {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    /* Highlight search results */
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+
+    /* Section Icons */
+    .section-icon {
+      margin-right: 8px;
+      color: var(--primary-color);
+    }
+
+    .action-icon {
+      display: inline-block;
+      margin-right: 5px;
+      width: 16px;
+      height: 16px;
+      vertical-align: -2px;
+    }
+
+    /* Responsive Adjustments for 13.3" Screens */
+    @media (max-width: 1366px) {
+      .container {
+        max-width: 100%;
+        padding: 0 16px;
+      }
+      
+      body {
+        padding: 12px;
+      }
+      
+      .card-body {
+        padding: 16px;
+      }
+      
+      #previewTable th, #previewTable td {
+        padding: 6px 4px;
+        font-size: 11px;
+      }
+      
+      .stats-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #recordForm {
+        grid-template-columns: 1fr;
+      }
+
+      .button-row {
+        grid-column: span 1;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      #searchBar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      #searchBar .search-buttons {
+        flex-direction: row;
+      }
+
+      #previewTable th, 
+      #previewTable td {
+        font-size: 10px;
+        padding: 4px 2px;
+      }
+
+      #helpBtn {
+        top: 10px;
+        right: 10px;
+        font-size: 18px;
+        width: 40px;
+        height: 40px;
+      }
+
+      #helpPanel {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .actions-container {
+        flex-direction: row;
+      }
+
+      .modal-toolbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .search-container {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      
+      .search-input-container {
+        max-width: none;
+        width: 100%;
+      }
+      
+      .view-options {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      
+      .expanded-view-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Focus States for Accessibility */
+    *:focus {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
+    }
+
+    /* Loading States */
+    .loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    /* Improved Visual Hierarchy */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gray-300), transparent);
+      margin: 24px 0;
+    }
+  </style>
+  <!-- Include Papa Parse library via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <!-- Include Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 4.7 Dark Mode Toggle Button -->
+    <button id="themeToggle" title="Toggle Dark/Light Mode">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Help Button -->
+    <button id="helpBtn" title="Help Guide"><i class="fas fa-question"></i></button>
+
+    <!-- Selection Banner -->
+    <div id="selectionBanner" class="selection-banner">
+      <div class="selection-info">
+        <i class="fas fa-check-square" style="font-size: 1.5rem;"></i>
+        <span class="count" id="selectionCount">0</span>
+        <span>record(s) selected</span>
+      </div>
+      <div class="selection-actions">
+        <button class="email-btn" onclick="emailSelectedRecords()">
+          <i class="fas fa-envelope btn-icon"></i>Send via Email
+        </button>
+        <button onclick="clearSelection()">
+          <i class="fas fa-times btn-icon"></i>Clear Selection
+        </button>
+      </div>
+    </div>
+
+    <h1><span style="color: var(--ricoh-red);">Ricoh</span> Triple P Form</h1>
+    <p class="subtitle">Poor Performing Parts Documentation System</p>
+
+    <!-- Enhanced Statistics Panel -->
+    <div id="statsPanel">
+      <div class="card">
+        <div class="card-header">
+          <h2><i class="fas fa-chart-bar"></i>Dashboard Overview</h2>
+        </div>
+        <div class="card-body">
+          <div class="stats-container">
+            <div class="stats-card with-icon">
+              <div class="stats-card-icon">
+                <i class="fas fa-clipboard-list"></i>
+              </div>
+              <div>
+                <div class="stats-card-title">Total Records</div>
+                <div class="stats-card-value" id="totalRecords">0</div>
+              </div>
+            </div>
+            <div class="stats-card with-icon">
+              <div class="stats-card-icon">
+                <i class="fas fa-archive"></i>
+              </div>
+              <div>
+                <div class="stats-card-title">Parts Kept</div>
+                <div class="stats-card-value" id="partsKept">0</div>
+                <div class="stats-card-secondary"><span id="partsKeptPercentage">0%</span> of total</div>
+              </div>
+            </div>
+            <div class="stats-card with-icon">
+              <div class="stats-card-icon">
+                <i class="fas fa-microchip"></i>
+              </div>
+              <div>
+                <div class="stats-card-title">SMC Retained</div>
+                <div class="stats-card-value" id="smcKept">0</div>
+                <div class="stats-card-secondary"><span id="smcKeptPercentage">0%</span> of total</div>
+              </div>
+            </div>
+            <div class="stats-card with-icon">
+              <div class="stats-card-icon">
+                <i class="fas fa-photo-video"></i>
+              </div>
+              <div>
+                <div class="stats-card-title">With Media</div>
+                <div class="stats-card-value" id="mediaRecords">0</div>
+                <div class="stats-card-secondary"><span id="mediaPercentage">0%</span> documented</div>
+              </div>
+            </div>
+            <div class="stats-card">
+              <div class="stats-card-title">Priority Distribution</div>
+              <div class="priority-counts">
+                <div class="priority-item high">
+                  <div class="priority-item-value" id="highPriority">0</div>
+                  <div class="priority-item-label">High</div>
+                </div>
+                <div class="priority-item medium">
+                  <div class="priority-item-value" id="mediumPriority">0</div>
+                  <div class="priority-item-label">Medium</div>
+                </div>
+                <div class="priority-item low">
+                  <div class="priority-item-value" id="lowPriority">0</div>
+                  <div class="priority-item-label">Low</div>
+                </div>
+              </div>
+            </div>
+            <div class="stats-card">
+              <div class="stats-card-title">Recent Activity</div>
+              <ul class="recent-activity-list" id="recentActivity">
+                <li>No recent activity</li>
+              </ul>
+            </div>
+            <div class="stats-card">
+              <div class="stats-card-title">Engineer Activity</div>
+              <div class="engineer-activity-container" id="engineerActivity">
+                <div class="engineer-activity-item">
+                  <span>No data available</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enhanced Form -->
+    <div class="card">
+      <div class="card-header">
+        <h2><i class="fas fa-plus-circle"></i>New Record Entry</h2>
+      </div>
+      <div class="card-body">
+        <form id="recordForm">
+          <!-- Part Information -->
+          <div class="form-section">
+            <div class="form-section-title">
+              <i class="fas fa-cogs section-icon"></i>Part Information
+            </div>
+            <div class="form-group">
+              <label for="serialNumber">Serial/Model Number <span class="required" style="color: var(--error-color);">*</span></label>
+              <input type="text" id="serialNumber" required placeholder="Enter device serial or model">
+            </div>
+            <div class="form-group">
+              <label for="partNumber">Part Number <span class="required" style="color: var(--error-color);">*</span></label>
+              <input type="text" id="partNumber" required placeholder="Enter part number">
+            </div>
+          </div>
+
+          <!-- Engineer Details -->
+          <div class="form-section">
+            <div class="form-section-title">
+              <i class="fas fa-user-cog section-icon"></i>Engineer Details
+            </div>
+            <div class="form-group">
+              <label for="engineerNumber">Engineer ID <span class="required" style="color: var(--error-color);">*</span></label>
+              <input type="text" id="engineerNumber" required placeholder="Enter engineer ID">
+            </div>
+            <div class="form-group">
+              <label for="callNumber">Call/Report Number <span class="required" style="color: var(--error-color);">*</span></label>
+              <input type="text" id="callNumber" required placeholder="Enter call number">
+            </div>
+          </div>
+
+          <!-- Fault Information -->
+          <div class="form-section full-width">
+            <div class="form-section-title">
+              <i class="fas fa-exclamation-triangle section-icon"></i>Fault Information
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div class="form-group">
+                <label for="fault">Fault Description <span class="required" style="color: var(--error-color);">*</span></label>
+                <input type="text" id="fault" required placeholder="Describe the fault">
+              </div>
+              <div class="form-group">
+                <label for="cause">Known Cause</label>
+                <input type="text" id="cause" placeholder="Enter cause if known">
+              </div>
+            </div>
+          </div>
+
+          <!-- Status & Assessment -->
+          <div class="form-section">
+            <div class="form-section-title">
+              <i class="fas fa-clipboard-check section-icon"></i>Part Status
+            </div>
+            <div class="form-group">
+              <label for="partKept">Part Retained?</label>
+              <select id="partKept">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="smcKept">SMC Retained?</label>
+              <select id="smcKept">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">
+              <i class="fas fa-info-circle section-icon"></i>Additional Info
+            </div>
+            <div class="form-group">
+              <label for="media">Media Available</label>
+              <select id="media">
+                <option value="No">No</option>
+                <option value="Yes Photos">Photos</option>
+                <option value="Yes Videos">Videos</option>
+                <option value="Yes Photos and Videos">Photos & Videos</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="majorFactor">Was this Part a Major Factor Prompting the Call?</label>
+              <select id="majorFactor">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Additional Details -->
+          <div class="form-section full-width">
+            <div class="form-section-title">
+              <i class="fas fa-map-marker-alt section-icon"></i>Site & Notes
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 12px;">
+              <div class="form-group">
+                <label for="siteDetails">Site Conditions</label>
+                <input type="text" id="siteDetails" placeholder="Temperature, humidity, etc.">
+              </div>
+              <div class="form-group">
+                <label for="additionalNotes">Additional Notes</label>
+                <textarea id="additionalNotes" rows="2" placeholder="Additional information..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button type="button" id="addRecordBtn">
+              <i class="fas fa-plus-circle btn-icon"></i>Add Record
+            </button>
+            <button type="button" id="clearFormBtn">
+              <i class="fas fa-eraser btn-icon"></i>Clear Form
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success Message -->
+    <div id="formMessage" class="success-message"></div>
+
+    <!-- Enhanced Records Section -->
+    <div class="card">
+      <div class="card-header">
+        <h2><i class="fas fa-table"></i>Records Management</h2>
+      </div>
+      <div class="card-body">
+        <!-- Search -->
+        <div id="searchBar">
+          <div class="search-input-container">
+            <span class="search-icon"><i class="fas fa-search"></i></span>
+            <input type="text" id="searchInput" placeholder="Search records...">
+          </div>
+          <div class="search-buttons">
+            <button type="button" id="searchBtn">
+              <i class="fas fa-search btn-icon"></i>Search
+            </button>
+            <button type="button" id="resetSearchBtn">
+              <i class="fas fa-undo btn-icon"></i>Reset
+            </button>
+            <button id="fullScreenBtn" class="view-btn">
+              <i class="fas fa-expand btn-icon"></i>Full View
+            </button>
+          </div>
+        </div>
+
+        <div id="preview">
+          <div class="table-container">
+            <table id="previewTable">
+              <thead>
+                <tr>
+                  <th class="checkbox-cell"><input type="checkbox" id="selectAllCheckbox" title="Select All"></th>
+                  <th data-key="Ref No.">Ref No.<span class="sort-indicator"></span></th>
+                  <th data-key="Serial No.">Serial No.<span class="sort-indicator"></span></th>
+                  <th data-key="Part No.">Part No.<span class="sort-indicator"></span></th>
+                  <th data-key="Engineer No.">Engineer No.<span class="sort-indicator"></span></th>
+                  <th data-key="Call No.">Call No.<span class="sort-indicator"></span></th>
+                  <th data-key="Fault">Fault<span class="sort-indicator"></span></th>
+                  <th data-key="Cause">Cause<span class="sort-indicator"></span></th>
+                  <th data-key="Part Kept">Part Kept<span class="sort-indicator"></span></th>
+                  <th data-key="SMC">SMC<span class="sort-indicator"></span></th>
+                  <th data-key="Media">Media<span class="sort-indicator"></span></th>
+                  <th data-key="Site Details">Site Details<span class="sort-indicator"></span></th>
+                  <th data-key="Major Factor">Major Factor<span class="sort-indicator"></span></th>
+                  <th data-key="Notes">Notes<span class="sort-indicator"></span></th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Records will appear here -->
+              </tbody>
+            </table>
+          </div>
+          <div id="pagination"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Enhanced Export Section -->
+    <div class="card" id="saveSection">
+      <div class="card-header">
+        <h2><i class="fas fa-download"></i>Export & Tools</h2>
+      </div>
+      <div class="card-body">
+        <div class="form-group" style="max-width: 400px; margin: 0 auto 16px;">
+          <label for="filename">Export Filename</label>
+          <input type="text" id="filename" placeholder="Enter filename">
+        </div>
+        <div class="button-row">
+          <button type="button" id="saveCsvBtn">
+            <i class="fas fa-download btn-icon"></i>Export CSV
+          </button>
+          <button type="button" id="importCsvBtn">
+            <i class="fas fa-upload btn-icon"></i>Import CSV
+          </button>
+          <button type="button" id="printBtn">
+            <i class="fas fa-print btn-icon"></i>Print
+          </button>
+          <button type="button" id="toggleStatsBtn" class="stats-btn">
+            <i class="fas fa-chart-bar btn-icon"></i><span id="statsButtonText">Show Stats</span>
+          </button>
+        </div>
+        <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+  
+  <!-- Full Screen Modal -->
+  <div id="fullScreenModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><span style="color: var(--ricoh-red);">Ricoh</span> Triple P Records</h2>
+        <button id="closeModalBtn" class="close-btn" title="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="modal-toolbar">
+        <div class="search-container">
+          <div class="search-input-container">
+            <span class="search-icon"><i class="fas fa-search"></i></span>
+            <input type="text" id="modalSearchInput" placeholder="Search records...">
+          </div>
+          <div class="filter-container">
+            <select id="columnFilter">
+              <option value="all">All Columns</option>
+              <option value="Ref No.">Reference No.</option>
+              <option value="Serial No.">Serial No.</option>
+              <option value="Part No.">Part No.</option>
+              <option value="Engineer No.">Engineer No.</option>
+              <option value="Call No.">Call No.</option>
+              <option value="Fault">Fault</option>
+              <option value="Cause">Cause</option>
+              <option value="Part Kept">Part Kept</option>
+              <option value="SMC">SMC</option>
+              <option value="Media">Media</option>
+              <option value="Site Details">Site Details</option>
+              <option value="Major Factor">Major Factor</option>
+              <option value="Notes">Notes</option>
+            </select>
+          </div>
+          <button id="modalSearchBtn" class="search-btn">
+            <i class="fas fa-search btn-icon"></i>Search
+          </button>
+          <button id="modalResetBtn" class="reset-btn">
+            <i class="fas fa-undo btn-icon"></i>Reset
+          </button>
+        </div>
+        
+        <div class="view-options">
+          <button id="compactViewBtn" class="view-option-btn active" title="Compact View">
+            <i class="fas fa-th-list"></i>
+          </button>
+          <button id="expandedViewBtn" class="view-option-btn" title="Expanded View">
+            <i class="fas fa-th-large"></i>
+          </button>
+          <button id="exportModalBtn" class="export-btn" title="Export Current View">
+            <i class="fas fa-download btn-icon"></i>Export
+          </button>
+        </div>
+      </div>
+      
+      <div class="modal-body">
+        <div id="modalTableContainer" class="table-container">
+          <!-- The enhanced table will be rendered here -->
+        </div>
+        
+        <div id="expandedViewContainer" class="expanded-view-container" style="display: none;">
+          <!-- The expanded card view will be rendered here -->
+        </div>
+        
+        <div id="modalPagination" class="modal-pagination"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Help Panel -->
+  <div id="helpPanel" role="dialog" aria-modal="true">
+    <div id="helpPanelHeader">
+      <h3><i class="fas fa-info-circle"></i> Triple P Form User Guide</h3>
+      <span id="helpPanelClose" title="Close" role="button" tabindex="0" aria-label="Close help panel">×</span>
+    </div>
+    <div id="helpPanelContent">
+      <div class="content-wrapper">
+        <h2 id="guide-title">Ricoh Triple P Form Application User Guide</h2>
+
+        <div class="help-highlight">
+          <h3>🚀 Welcome to the Enhanced Triple P Form</h3>
+          <p>This application helps engineers efficiently document poor-performing parts with advanced features including automatic reference number generation, comprehensive statistics tracking, and multiple viewing modes.</p>
+        </div>
+
+        <h3 id="guide-toc">Table of Contents</h3>
+        <ol>
+          <li><a href="#guide-introduction">Introduction</a></li>
+          <li><a href="#guide-getting-started">Getting Started</a></li>
+          <li><a href="#guide-form-fields">Understanding Form Fields</a></li>
+          <li><a href="#guide-adding-records">Adding and Managing Records</a>
+            <ul>
+              <li><a href="#guide-theme-toggle">4.5. Dark/Light Mode Toggle</a></li>
+              <li><a href="#guide-bulk-selection">4.6. Bulk Selection and Email Records</a></li>
+            </ul>
+          </li>
+          <li><a href="#guide-reference-numbers">Reference Number System</a></li>
+          <li><a href="#guide-searching">Searching and Filtering</a></li>
+          <li><a href="#guide-viewing-modes">Viewing Modes</a>
+            <ul>
+              <li><a href="#guide-table-view">Table View</a></li>
+              <li><a href="#guide-full-screen">Full Screen Modal</a></li>
+              <li><a href="#guide-expanded-view">Expanded Card View</a></li>
+            </ul>
+          </li>
+          <li><a href="#guide-statistics">Statistics Overview</a></li>
+          <li><a href="#guide-import-export">Import/Export Features</a></li>
+          <li><a href="#guide-data-persistence">Data Persistence</a></li>
+          <li><a href="#guide-keyboard-shortcuts">Keyboard Shortcuts</a></li>
+          <li><a href="#guide-troubleshooting">Troubleshooting</a></li>
+          <li><a href="#guide-tips">Tips for Effective Use</a></li>
+        </ol>
+
+        <hr>
+
+        <h2 id="guide-introduction">1. Introduction</h2>
+        <p>The Ricoh Triple P (Poor Performing Parts) Form is a comprehensive web-based application designed to help engineers document, track, and analyze equipment failures and part performance issues. The application runs entirely in your web browser and stores data locally, ensuring your information is always available.</p>
+
+        <div class="help-tip">
+          <strong>New Features:</strong> This version includes automatic reference number generation, enhanced statistics, full-screen viewing modes, dark/light mode toggle, bulk selection and email capabilities, and improved data management.
+        </div>
+
+        <h2 id="guide-getting-started">2. Getting Started</h2>
+        <h3>System Requirements</h3>
+        
+        <div class="help-warning">
+          <strong>Ricoh UK Internal Application</strong>
+          <p>This application is designed exclusively for Ricoh UK personnel and must only be used on Ricoh UK supplied equipment.</p>
+        </div>
+
+        <ul>
+          <li><strong>Supported Browsers:</strong> 
+            <ul>
+              <li>Edge Chromium (latest version) - <strong>PREFERRED BROWSER</strong></li>
+              <li>Google Chrome (latest version) - Also supported</li>
+            </ul>
+          </li>
+          <li><strong>Browser Warning:</strong> All other browsers, including older versions, may not support all features and are <strong>NOT RECOMMENDED</strong></li>
+          <li><strong>Device Compatibility:</strong> Windows PCs only (Ricoh UK supplied)</li>
+          <li><strong>Not Supported:</strong> Mac computers, mobile devices, tablets</li>
+          <li><strong>Internet Connection:</strong> Required initially to load the application (data is stored locally thereafter)</li>
+          <li><strong>Storage:</strong> Uses browser local storage for data persistence</li>
+        </ul>
+
+        <div class="help-warning">
+          <strong>CRITICAL - Browser Consistency for Data Storage</strong>
+          <p>Records are stored locally in your browser. If you want to access your stored records, you MUST always use the same browser.</p>
+          <ul>
+            <li>Data saved in Edge Chromium will NOT be visible in Chrome</li>
+            <li>Data saved in Chrome will NOT be visible in Edge Chromium</li>
+            <li>Choose ONE browser and use it consistently</li>
+            <li>Switching browsers will make your records appear to be "missing"</li>
+            <li>Your records are not deleted - they are still in the original browser</li>
+          </ul>
+        </div>
+
+        <div class="help-tip">
+          <strong>Browser Best Practices</strong>
+          <ul>
+            <li>Choose Edge Chromium as your primary browser and stick with it</li>
+            <li>Always use the latest version of Edge Chromium for optimal performance</li>
+            <li>Keep your browser updated to receive security patches</li>
+            <li>Do not switch between browsers if you want to see your saved records</li>
+            <li>If experiencing issues, try using Edge Chromium instead of Chrome</li>
+          </ul>
+        </div>
+
+        <h3>First Time Setup</h3>
+        <ol>
+          <li>Open the application in your web browser</li>
+          <li>Familiarize yourself with the interface layout</li>
+          <li>Begin entering your first record to understand the workflow</li>
+        </ol>
+
+        <h2 id="guide-form-fields">3. Understanding Form Fields</h2>
+        <p>The form is organized into logical sections to streamline data entry:</p>
+
+        <h3>Part Information</h3>
+        <ul>
+          <li><strong>Serial or Model Number *:</strong> Enter the device serial number or model identifier</li>
+          <li><strong>Part Number *:</strong> Specify the exact part number of the failing component</li>
+        </ul>
+
+        <h3>Engineer & Call Details</h3>
+        <ul>
+          <li><strong>Engineer Number *:</strong> Your unique engineer identification number</li>
+          <li><strong>Call or Tech Report Number *:</strong> Associated service call or technical report reference</li>
+        </ul>
+
+        <h3>Fault Details</h3>
+        <ul>
+          <li><strong>Fault *:</strong> Detailed description of the observed problem</li>
+          <li><strong>Cause of Fault:</strong> Known or suspected root cause (optional but recommended)</li>
+        </ul>
+
+        <h3>Part Status</h3>
+        <ul>
+          <li><strong>Has the Part Been Kept?:</strong> Whether the faulty part was retained for analysis</li>
+          <li><strong>Has SMC Been Kept?:</strong> Whether System Management Controller data was preserved</li>
+        </ul>
+
+        <h3>Additional Information</h3>
+        <ul>
+          <li><strong>Photos/Videos:</strong> Availability of visual documentation</li>
+          <li><strong>Customer Site Details:</strong> Environmental conditions affecting the equipment</li>
+        </ul>
+
+        <h3>Assessment</h3>
+        <ul>
+          <li><strong>Major Factor:</strong> Whether this part was the primary reason for the service call</li>
+          <li><strong>Additional Notes:</strong> Any supplementary information relevant to the case</li>
+        </ul>
+
+        <div class="help-warning">
+          <strong>Required Fields:</strong> Fields marked with an asterisk (*) must be completed before a record can be added. These fields have a red triangle indicator in the top-right corner.
+        </div>
+
+        <h2 id="guide-adding-records">4. Adding and Managing Records</h2>
+
+        <h3>Adding a New Record</h3>
+        <ol>
+          <li>Complete all required fields in the form</li>
+          <li>Fill in optional fields as appropriate</li>
+          <li>Click the "Add Record" button</li>
+          <li>A unique reference number will be automatically generated</li>
+          <li>The record appears immediately in the preview table</li>
+          <li>Form fields are cleared for the next entry</li>
+        </ol>
+
+        <h3>Editing an Existing Record</h3>
+        <ol>
+          <li>Locate the record in the table view</li>
+          <li>Click the "Review" button (green button with edit icon)</li>
+          <li>The form populates with the record's current data</li>
+          <li>Make your changes</li>
+          <li>Click "Update Record" to save changes</li>
+          <li>The button text changes to indicate edit mode</li>
+        </ol>
+
+        <h3>Deleting a Record</h3>
+        <ol>
+          <li>Find the record you want to remove</li>
+          <li>Click the "Delete" button (red button with trash icon)</li>
+          <li>Confirm the deletion when prompted</li>
+        </ol>
+
+        <div class="help-warning">
+          <strong>Warning:</strong> Record deletions are permanent and cannot be undone. Consider exporting your data regularly as a backup.
+        </div>
+
+        <h3>Form Validation</h3>
+        <p>The application performs real-time validation:</p>
+        <ul>
+          <li>Required fields are highlighted when empty</li>
+          <li>Form cannot be submitted with missing required data</li>
+          <li>Success messages confirm successful operations</li>
+          <li>Error handling prevents data loss</li>
+        </ul>
+
+        <h3 id="guide-theme-toggle">4.5. Dark/Light Mode Toggle</h3>
+        <p>The application includes a theme toggle that allows you to switch between light and dark display modes for improved visibility and reduced eye strain.</p>
+
+        <h4>Accessing the Theme Toggle</h4>
+        <ul>
+          <li>Located at the top-right corner of the screen</li>
+          <li>Fixed position button (stays visible when scrolling)</li>
+          <li>Moon icon (☾) indicates light mode is active</li>
+          <li>Sun icon (☀) indicates dark mode is active</li>
+        </ul>
+
+        <h4>How to Switch Themes</h4>
+        <ol>
+          <li>Click the theme toggle button in the top-right corner</li>
+          <li>The interface immediately switches to the alternate theme</li>
+          <li>Your preference is automatically saved</li>
+          <li>The selected theme persists across browser sessions</li>
+        </ol>
+
+        <h4>Theme Features</h4>
+        <ul>
+          <li><strong>Light Mode:</strong> Bright white backgrounds with high contrast text</li>
+          <li><strong>Dark Mode:</strong> Deep dark backgrounds with bright, comfortable text colors</li>
+          <li><strong>Automatic Detection:</strong> On first use, the application respects your system's dark/light mode preference</li>
+          <li><strong>Persistent:</strong> Your theme choice is remembered between visits</li>
+          <li><strong>Complete Coverage:</strong> All UI elements adapt to the selected theme</li>
+        </ul>
+
+        <div class="help-tip">
+          <strong>When to Use Dark Mode</strong>
+          <ul>
+            <li>Working in low-light environments</li>
+            <li>Extended viewing sessions to reduce eye strain</li>
+            <li>Personal preference for dark interfaces</li>
+            <li>When matching other applications in dark mode</li>
+          </ul>
+        </div>
+
+        <h4>Theme Toggle and Accessibility</h4>
+        <p>The dark mode theme is designed with enhanced contrast ratios to maintain readability while providing a comfortable viewing experience. All colors and interactive elements remain clearly visible in both themes.</p>
+
+        <h3 id="guide-bulk-selection">4.6. Bulk Selection and Email Records</h3>
+        <p>The application includes powerful bulk selection tools that allow you to select multiple records and send them via email in a single operation.</p>
+
+        <h4>Selecting Multiple Records</h4>
+
+        <p><strong>Individual Selection:</strong></p>
+        <ol>
+          <li>Locate the checkbox column on the left side of the records table</li>
+          <li>Click the checkbox next to any record you want to select</li>
+          <li>The checkbox displays a checkmark and the row is highlighted</li>
+          <li>Click again to deselect the record</li>
+        </ol>
+
+        <p><strong>Select All Records:</strong></p>
+        <ol>
+          <li>Click the checkbox in the table header row (above the record checkboxes)</li>
+          <li>All visible records are immediately selected</li>
+          <li>Click again to deselect all records</li>
+        </ol>
+
+        <h4>Selection Banner</h4>
+        <p>When you select one or more records, a blue banner appears at the top of the screen showing:</p>
+        <ul>
+          <li>Number of records currently selected</li>
+          <li>"Send via Email" button</li>
+          <li>"Clear Selection" button</li>
+        </ul>
+
+        <h4>Emailing Selected Records</h4>
+
+        <p><strong>For 1-3 Records:</strong></p>
+        <ol>
+          <li>Select the records you want to email using checkboxes</li>
+          <li>Click the "Send via Email" button in the selection banner</li>
+          <li>A dialog asks if you want to download a CSV file to attach</li>
+          <li>If Yes: CSV file downloads automatically</li>
+          <li>Your default email client opens with:
+            <ul>
+              <li>Pre-filled recipient: <strong>tdc@ricoh.co.uk</strong></li>
+              <li>Subject line with timestamp and record count</li>
+              <li>Full record details in the email body</li>
+            </ul>
+          </li>
+          <li>Attach the CSV file if you chose to download it</li>
+          <li>Review and send the email</li>
+        </ol>
+
+        <p><strong>For 4 or More Records:</strong></p>
+        <ol>
+          <li>Select the records you want to email using checkboxes</li>
+          <li>Click the "Send via Email" button in the selection banner</li>
+          <li>A CSV file automatically downloads to your computer</li>
+          <li>Your default email client opens with:
+            <ul>
+              <li>Pre-filled recipient: <strong>tdc@ricoh.co.uk</strong></li>
+              <li>Subject line with timestamp and record count</li>
+              <li>Summary of first 10 records in email body</li>
+              <li>Instructions to attach the downloaded CSV file</li>
+            </ul>
+          </li>
+          <li>Attach the downloaded CSV file to the email</li>
+          <li>Review and send the email</li>
+        </ol>
+
+        <div class="help-warning">
+          <strong>Important Email Notes</strong>
+          <ul>
+            <li>The email recipient is always <strong>tdc@ricoh.co.uk</strong></li>
+            <li>For 4+ records, you MUST attach the CSV file</li>
+            <li>The CSV file is automatically named with the current date</li>
+            <li>If your email client doesn't open automatically, manually create an email using the displayed subject line</li>
+          </ul>
+        </div>
+
+        <h4>Email Subject Line Format</h4>
+        <p>Emails are automatically formatted with the subject:</p>
+        <p><code>Triple P Report - [X] Record(s) - [DD/MM/YYYY HH:MM]</code></p>
+        <p><strong>Example:</strong> <code>Triple P Report - 5 Records - 28/10/2025 14:35</code></p>
+
+        <h4>Clearing Selection</h4>
+        <p>To deselect all records without emailing:</p>
+        <ol>
+          <li>Click the "Clear Selection" button in the selection banner</li>
+          <li>OR click the Select All checkbox in the table header to toggle off</li>
+          <li>The selection banner disappears when no records are selected</li>
+        </ol>
+
+        <div class="help-tip">
+          <strong>Bulk Email Best Practices</strong>
+          <ul>
+            <li>Review your selection before clicking Send via Email</li>
+            <li>For large batches (10+ records), consider splitting into multiple emails</li>
+            <li>Always verify the CSV file downloaded before sending</li>
+            <li>Check your email sent folder to confirm successful transmission</li>
+            <li>Keep a backup copy of emailed CSV files for your records</li>
+          </ul>
+        </div>
+
+        <h4>Troubleshooting Email Issues</h4>
+
+        <p><strong>Email Client Doesn't Open:</strong></p>
+        <ul>
+          <li>Manually compose an email to: <strong>tdc@ricoh.co.uk</strong></li>
+          <li>Copy the subject line shown in the alert dialog</li>
+          <li>Attach the downloaded CSV file</li>
+          <li>Include any relevant notes in the email body</li>
+        </ul>
+
+        <p><strong>CSV File Not Found:</strong></p>
+        <ul>
+          <li>Check your browser's default download location</li>
+          <li>The file is named: <code>Triple_P_Report_[YYYY-MM-DD].csv</code></li>
+          <li>If not found, repeat the email process</li>
+          <li>Consider changing your browser download settings to always ask where to save</li>
+        </ul>
+
+        <p><strong>Unable to Attach CSV:</strong></p>
+        <ul>
+          <li>Ensure the CSV file completed downloading</li>
+          <li>Check file size (should be reasonable, not 0 bytes)</li>
+          <li>Try opening the CSV file in a text editor to verify content</li>
+          <li>If corrupted, re-export the records and try again</li>
+        </ul>
+
+        <h2 id="guide-reference-numbers">5. Reference Number System</h2>
+        <p>The application automatically generates unique reference numbers for each record using the format:</p>
+        <p><strong>[Engineer Number]_TP_[YYYYMMDD]_[Sequence]</strong></p>
+
+        <h3>Example</h3>
+        <ul>
+          <li>Engineer Number: 1234</li>
+          <li>Date: March 15, 2024</li>
+          <li>Sequence: 2nd record of the day</li>
+          <li>Result: <strong>1234_TP_20240315_2</strong></li>
+        </ul>
+
+        <h3>Features</h3>
+        <ul>
+          <li>Automatically increments sequence numbers</li>
+          <li>Resets daily for each engineer</li>
+          <li>Prevents duplicate reference numbers</li>
+          <li>Stored persistently in browser storage</li>
+        </ul>
+
+        <h2 id="guide-searching">6. Searching and Filtering</h2>
+        <p>The application provides powerful search capabilities to quickly find specific records:</p>
+
+        <h3>Basic Search</h3>
+        <ul>
+          <li>Enter search terms in the search box above the table</li>
+          <li>Searches across all fields including part numbers, faults, causes, and notes</li>
+          <li>Case-insensitive search</li>
+          <li>Real-time filtering: Results update as you type</li>
+          <li>Highlighted results: Matching text is highlighted in search results</li>
+        </ul>
+
+        <h3>Table Sorting</h3>
+        <ul>
+          <li>Click any column header to sort by that field</li>
+          <li>Click again to reverse the sort order</li>
+          <li>Sort indicators show current sort direction (▲ ▼)</li>
+          <li>Sorting works with both full data and search results</li>
+        </ul>
+
+        <h2 id="guide-viewing-modes">7. Viewing Modes</h2>
+
+        <h3 id="guide-table-view">Table View (Default)</h3>
+        <ul>
+          <li>Traditional tabular display of all records</li>
+          <li>Paginated view (10 records per page by default)</li>
+          <li>Sortable columns with visual indicators</li>
+          <li>Tooltips show full content for truncated cells</li>
+          <li>Action buttons for editing and deleting</li>
+          <li>Responsive design adapts to screen size</li>
+        </ul>
+
+        <h3 id="guide-full-screen">Full Screen Modal</h3>
+        <p>Click the "Full Screen View" button to access the enhanced viewing mode:</p>
+        <ul>
+          <li><strong>Enhanced Search:</strong> Search within specific columns</li>
+          <li><strong>Column Filtering:</strong> Filter by specific fields</li>
+          <li><strong>Higher Density:</strong> 20 records per page</li>
+          <li><strong>Better Performance:</strong> Optimized for large datasets</li>
+          <li><strong>Export Function:</strong> Export filtered results</li>
+          <li><strong>Keyboard Navigation:</strong> Enhanced accessibility</li>
+        </ul>
+
+        <h3 id="guide-expanded-view">Expanded Card View</h3>
+        <p>Within the full-screen modal, toggle to card view for detailed record inspection:</p>
+        <ul>
+          <li><strong>Card Layout:</strong> Each record displayed as an individual card</li>
+          <li><strong>Full Field Visibility:</strong> All data visible without truncation</li>
+          <li><strong>Organized Display:</strong> Logical grouping of related information</li>
+          <li><strong>Easy Scanning:</strong> Quickly review multiple records</li>
+          <li><strong>Mobile Optimized:</strong> Works well on smaller screens</li>
+        </ul>
+
+        <h2 id="guide-statistics">8. Statistics Overview</h2>
+        <p>Click "Show Stats" to reveal comprehensive analytics about your records:</p>
+
+        <h3>Available Statistics</h3>
+        <ul>
+          <li><strong>Total Records:</strong> Complete count of all entries</li>
+          <li><strong>Parts Kept:</strong> Number and percentage of retained parts</li>
+          <li><strong>SMC Kept:</strong> System Management Controller data retention statistics</li>
+          <li><strong>Media Records:</strong> Count of records with photos/videos</li>
+          <li><strong>Priority Distribution:</strong> Breakdown by perceived priority level</li>
+          <li><strong>Recent Activity:</strong> Five most recent records</li>
+          <li><strong>Engineer Activity:</strong> Record count by engineer</li>
+        </ul>
+
+        <h3>Priority Calculation</h3>
+        <ul>
+          <li><strong>High Priority:</strong> Parts marked as "Major Factor" = Yes</li>
+          <li><strong>Medium Priority:</strong> Non-major factors with known causes</li>
+          <li><strong>Low Priority:</strong> All other records</li>
+        </ul>
+
+        <h3>Using Statistics</h3>
+        <ul>
+          <li>Monitor team performance and workload distribution</li>
+          <li>Identify trends in part failures</li>
+          <li>Track documentation completeness</li>
+          <li>Plan resource allocation based on activity levels</li>
+        </ul>
+
+        <h2 id="guide-import-export">9. Import/Export Features</h2>
+
+        <h3>Exporting Data</h3>
+        <h4>Save as CSV</h4>
+        <ol>
+          <li>Customize the filename (includes current date by default)</li>
+          <li>Click "Save as CSV"</li>
+          <li>File downloads to your default download location</li>
+          <li>Includes all current records in CSV format</li>
+        </ol>
+
+        <h4>Print Records</h4>
+        <ol>
+          <li>Click "Print Records"</li>
+          <li>New window opens with print-optimized layout</li>
+          <li>Action columns are automatically removed</li>
+          <li>Use browser print function or print button in new window</li>
+        </ol>
+
+        <h3>Importing Data</h3>
+        <h4>CSV Import</h4>
+        <ol>
+          <li>Click "Import CSV"</li>
+          <li>Select CSV file from your computer</li>
+          <li>Application maps fields automatically</li>
+          <li>Imported records are added to existing data</li>
+          <li>Reference numbers generated for records without them</li>
+        </ol>
+
+        <h4>Supported CSV Formats</h4>
+        <p>The application accepts CSV files with these column headers (case-insensitive):</p>
+        <ul>
+          <li>Ref No., Serial No./Model No., Part No./Part Number</li>
+          <li>Engineer No./Engineer Number, Call No./Call or Tech Report Number</li>
+          <li>Fault, Cause, Part Kept, SMC, Media</li>
+          <li>Site Details/Location/Location Details</li>
+          <li>Major Factor/Climate, Notes/Additional Notes</li>
+        </ul>
+
+        <h3>Export from Full Screen Mode</h3>
+        <ul>
+          <li>Export button in full-screen modal exports only filtered results</li>
+          <li>Useful for creating targeted reports</li>
+          <li>Maintains current sort order and filters</li>
+        </ul>
+
+        <h2 id="guide-data-persistence">10. Data Persistence</h2>
+
+        <h3>Local Storage</h3>
+        <ul>
+          <li><strong>Automatic Saving:</strong> Records saved immediately after each operation</li>
+          <li><strong>Browser-Based:</strong> Data stored in your browser's local storage</li>
+          <li><strong>Persistent:</strong> Data remains after closing and reopening browser</li>
+          <li><strong>Device-Specific:</strong> Data doesn't sync between different devices</li>
+          <li><strong>Browser-Specific:</strong> Data stored in Edge Chromium is separate from data stored in Chrome</li>
+        </ul>
+
+        <div class="help-warning">
+          <strong>CRITICAL - Browser Consistency Required</strong>
+          <p>Your records are stored inside the specific browser you use. To access your saved records:</p>
+          <ul>
+            <li>Use the SAME browser every time (preferably Edge Chromium)</li>
+            <li>Records saved in Edge Chromium will NOT appear in Chrome</li>
+            <li>Records saved in Chrome will NOT appear in Edge Chromium</li>
+            <li>Switching browsers makes records appear "missing" but they are NOT deleted</li>
+            <li>Choose ONE browser and stick with it for all Triple P work</li>
+          </ul>
+        </div>
+
+        <h3>Data Safety Considerations</h3>
+        <div class="help-warning">
+          <strong>Important:</strong> Local storage data can be lost if:
+          <ul>
+            <li>Browser cache is cleared</li>
+            <li>Browser data is reset</li>
+            <li>Device storage is full</li>
+            <li>Different browser or device is used</li>
+            <li>You switch to a different browser (records remain in original browser but won't be visible)</li>
+          </ul>
+        </div>
+
+        <h3>Backup Recommendations</h3>
+        <ul>
+          <li>Export CSV files regularly (daily or weekly)</li>
+          <li>Store backups in multiple locations</li>
+          <li>Test import functionality periodically</li>
+          <li>Consider using cloud storage for CSV backups</li>
+        </ul>
+
+        <h2 id="guide-keyboard-shortcuts">11. Keyboard Shortcuts</h2>
+
+        <h3>General Navigation</h3>
+        <ul>
+          <li><strong>Tab:</strong> Navigate between form fields</li>
+          <li><strong>Enter:</strong> Submit form when all required fields completed</li>
+          <li><strong>Escape:</strong> Close modal windows</li>
+        </ul>
+
+        <h3>Table Operations</h3>
+        <ul>
+          <li><strong>Click column headers:</strong> Sort by that column</li>
+          <li><strong>Hover over cells:</strong> View full content in tooltip</li>
+        </ul>
+
+        <h3>Modal Operations</h3>
+        <ul>
+          <li><strong>F11 or fullscreen button:</strong> Toggle full-screen mode</li>
+          <li><strong>Escape:</strong> Close modal</li>
+          <li><strong>Tab navigation:</strong> Move through modal controls</li>
+        </ul>
+
+        <h2 id="guide-troubleshooting">12. Troubleshooting</h2>
+
+        <h3>Common Issues and Solutions</h3>
+
+        <h4>Records Not Saving</h4>
+        <ul>
+          <li>Check that all required fields are completed</li>
+          <li>Ensure browser supports local storage</li>
+          <li>Clear browser cache and try again</li>
+          <li>Check available disk space</li>
+        </ul>
+
+        <h4>Search Not Working</h4>
+        <ul>
+          <li>Verify records exist in the system</li>
+          <li>Try different search terms</li>
+          <li>Clear search and reload page</li>
+          <li>Check for JavaScript errors in browser console</li>
+        </ul>
+
+        <h4>Import Failing</h4>
+        <ul>
+          <li>Verify CSV file format and headers</li>
+          <li>Check file size (large files may take time)</li>
+          <li>Ensure file is not corrupted</li>
+          <li>Try importing smaller batches</li>
+        </ul>
+
+        <h4>Performance Issues</h4>
+        <ul>
+          <li>Use pagination for large datasets</li>
+          <li>Export and archive old records</li>
+          <li>Close other browser tabs</li>
+          <li>Update to latest browser version</li>
+        </ul>
+
+        <h3>Browser Compatibility</h3>
+
+        <div class="help-warning">
+          <strong>Ricoh UK Approved Browsers Only</strong>
+          <p>Only use Edge Chromium or Google Chrome on Ricoh UK supplied Windows PCs.</p>
+        </div>
+
+        <ul>
+          <li><strong>Supported Browsers:</strong>
+            <ul>
+              <li>Edge Chromium (latest version) - PREFERRED</li>
+              <li>Google Chrome (latest version) - Supported</li>
+            </ul>
+          </li>
+          <li><strong>Platform:</strong> Windows PCs only (Ricoh UK supplied equipment)</li>
+          <li><strong>Not Supported:</strong> Mac computers, mobile devices, tablets, or any other browsers</li>
+          <li><strong>Features requiring modern browser:</strong> Local storage, responsive design, modal dialogs, dark mode, email integration</li>
+          <li><strong>Known Issues:</strong>
+            <ul>
+              <li>Older browsers will not function correctly</li>
+              <li>Non-approved browsers (Firefox, Safari, Opera, etc.) are NOT RECOMMENDED and may cause data loss or feature failures</li>
+              <li>Mobile browsers lack full functionality</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="help-warning">
+          <strong>CRITICAL - Use the Same Browser to Access Your Records</strong>
+          <p>Your records are stored in the browser you used when you saved them.</p>
+          <ul>
+            <li>If you saved records in Edge Chromium, open them in Edge Chromium</li>
+            <li>If you saved records in Chrome, open them in Chrome</li>
+            <li>Records saved in one browser will NOT appear in another browser</li>
+            <li>Switching browsers does NOT delete your records - they remain in the original browser</li>
+            <li>For best results, choose ONE browser (preferably Edge Chromium) and use it exclusively</li>
+          </ul>
+        </div>
+
+        <div class="help-tip">
+          <strong>If You Experience Browser Issues</strong>
+          <ol>
+            <li>First, ensure you're using Edge Chromium (preferred browser)</li>
+            <li>Verify you're using the latest browser version</li>
+            <li>Clear your browser cache and cookies (Note: This may delete your stored records!)</li>
+            <li>Restart your browser</li>
+            <li>If issues persist, contact IT support</li>
+          </ol>
+        </div>
+
+        <h4>Why Edge Chromium is Preferred</h4>
+        <p>Edge Chromium is the recommended browser because:</p>
+        <ul>
+          <li>Native integration with Windows operating system</li>
+          <li>Optimal performance on Ricoh UK hardware</li>
+          <li>Best support for all application features</li>
+          <li>Enhanced security features</li>
+          <li>Consistent behavior across Ricoh UK systems</li>
+        </ul>
+
+        <h2 id="guide-tips">13. Tips for Effective Use</h2>
+
+        <h3>Data Entry Best Practices</h3>
+        <ul>
+          <li><strong>Be Consistent:</strong> Use standardized terminology and formats</li>
+          <li><strong>Be Specific:</strong> Provide detailed fault descriptions</li>
+          <li><strong>Include Context:</strong> Environmental conditions can be crucial</li>
+          <li><strong>Document Completely:</strong> Fill optional fields when relevant</li>
+          <li><strong>Review Before Submitting:</strong> Double-check important details</li>
+        </ul>
+
+        <h3>Organization Tips</h3>
+        <ul>
+          <li><strong>Regular Exports:</strong> Backup data weekly or monthly</li>
+          <li><strong>Use Statistics:</strong> Monitor trends and patterns</li>
+          <li><strong>Consistent Naming:</strong> Standardize part number formats</li>
+          <li><strong>Team Coordination:</strong> Share export guidelines with colleagues</li>
+        </ul>
+
+        <h3>Performance Optimization</h3>
+        <ul>
+          <li><strong>Regular Maintenance:</strong> Archive old records periodically</li>
+          <li><strong>Efficient Searching:</strong> Use specific terms for faster results</li>
+          <li><strong>Pagination:</strong> Keep page sizes reasonable for better performance</li>
+          <li><strong>Browser Maintenance:</strong> Clear cache if experiencing issues</li>
+        </ul>
+
+        <h3>Quality Assurance</h3>
+        <ul>
+          <li><strong>Peer Review:</strong> Have colleagues review critical entries</li>
+          <li><strong>Data Validation:</strong> Use statistics to identify inconsistencies</li>
+          <li><strong>Regular Audits:</strong> Review records for completeness and accuracy</li>
+          <li><strong>Training:</strong> Ensure all users understand proper procedures</li>
+        </ul>
+
+        <div class="help-highlight">
+          <h3>📋 Quick Reference Checklist</h3>
+          <p><strong>For each new record, ensure you have:</strong></p>
+          <ul>
+            <li>✓ Complete part identification</li>
+            <li>✓ Detailed fault description</li>
+            <li>✓ Proper engineer and call references</li>
+            <li>✓ Status of part and SMC retention</li>
+            <li>✓ Environmental context where relevant</li>
+            <li>✓ Assessment of part's role in the failure</li>
+          </ul>
+        </div>
+
+        <hr style="margin: 32px 0;">
+        <p style="text-align: center; color: #666; font-size: 0.9em;">
+          © 2025 Ricoh UK Ltd. All Rights Reserved.<br>
+          Triple P Form Application - Enhanced Version with Integrated Help
+        </p>
+      </div>
+    </div>
+
+  <script>
+    
+    //=============================================================================
+    // 7.3 CONSISTENT ERROR LOGGING UTILITY
+    //=============================================================================
+    
+    /**
+     * Logging utility for consistent error and info logging
+     * @namespace Logger
+     */
+    const Logger = {
+      /**
+       * Log an informational message
+       * @param {string} message - The message to log
+       * @param {*} data - Optional data to log
+       */
+      info: function(message, data = null) {
+        if (data) {
+          console.log(`[INFO] ${message}`, data);
+        } else {
+          console.log(`[INFO] ${message}`);
+        }
+      },
+      
+      /**
+       * Log a warning message
+       * @param {string} message - The warning message
+       * @param {*} data - Optional data to log
+       */
+      warn: function(message, data = null) {
+        if (data) {
+          console.warn(`[WARN] ${message}`, data);
+        } else {
+          console.warn(`[WARN] ${message}`);
+        }
+      },
+      
+      /**
+       * Log an error message
+       * @param {string} message - The error message
+       * @param {Error} error - Optional error object
+       */
+      error: function(message, error = null) {
+        if (error) {
+          console.error(`[ERROR] ${message}`, error);
+        } else {
+          console.error(`[ERROR] ${message}`);
+        }
+      },
+      
+      /**
+       * Log a success message
+       * @param {string} message - The success message
+       */
+      success: function(message) {
+        console.log(`[SUCCESS] ${message}`);
+      }
+    };
+
+    //=============================================================================
+    // 4.7 DARK MODE FUNCTIONALITY
+    //=============================================================================
+    
+    /**
+     * Initialize theme based on user preference or system preference
+     */
+    function initializeTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        updateThemeIcon('dark');
+      }
+      
+      Logger.info('Theme initialized', { theme: document.documentElement.getAttribute('data-theme') || 'light' });
+    }
+
+    /**
+     * Toggle between light and dark themes
+     */
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+      
+      Logger.info('Theme toggled', { from: currentTheme, to: newTheme });
+      showToast(`${newTheme === 'dark' ? '🌙' : '☀️'} ${newTheme === 'dark' ? 'Dark' : 'Light'} mode activated`, 'info');
+    }
+
+    /**
+     * Update the theme toggle button icon
+     * @param {string} theme - Current theme ('light' or 'dark')
+     */
+    function updateThemeIcon(theme) {
+      const themeToggle = document.getElementById('themeToggle');
+      if (!themeToggle) return;
+      
+      const icon = themeToggle.querySelector('i');
+      
+      if (theme === 'dark') {
+        icon.className = 'fas fa-sun';
+        themeToggle.title = 'Switch to Light Mode';
+      } else {
+        icon.className = 'fas fa-moon';
+        themeToggle.title = 'Switch to Dark Mode';
+      }
+    }
+
+    //=============================================================================
+    // CONFIGURATION CONSTANTS
+    //=============================================================================
+    
+    const CONFIG = {
+      // Pagination
+      ITEMS_PER_PAGE: 10,
+      PAGE_BUTTON_RANGE: 2,
+      
+      // Email
+      MAX_RECORDS_IN_EMAIL_BODY: 3,
+      EMAIL_ADDRESS: 'tdc@ricoh.co.uk',
+      
+      // Storage
+      STORAGE_KEY: 'records',
+      REF_SEQUENCES_KEY: 'refSequences',
+      MAX_STORAGE_SIZE: 5000000, // ~5MB
+      
+      // UI Timing
+      TOAST_DURATION: 3000,
+      SEARCH_DEBOUNCE_DELAY: 300
+    };
+
+    //=============================================================================
+    // DATA STORAGE & STATE
+    //=============================================================================
+    
+// Initialize default filename
+    (function(){
+      const today = new Date();
+      const dd = String(today.getDate()).padStart(2, '0');
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const yyyy = today.getFullYear();
+      const defaultFilename = `Ricoh_Triple_P_${dd}_${mm}_${yyyy}.csv`;
+      document.getElementById('filename').value = defaultFilename;
+    })();
+
+    // Initialize variables
+    // Application state variables
+    let records = [];
+    let editingIndex = null;
+    let currentPage = 1;
+    const recordsPerPage = 10;
+    let currentSort = { key: null, order: 'asc' };
+    let statsVisible = false;
+    
+    // PHASE 1 REFINEMENT: Track unsaved changes and submission state
+    let hasUnsavedChanges = false;
+    let isSubmitting = false;
+    
+    // PHASE 2 REFINEMENT: Form auto-save and operation tracking
+    let autoSaveTimer = null;
+    let lastAutoSave = null;
+    
+    // PHASE 3 REFINEMENT: Performance optimization
+    let searchIndex = null;           // Indexed search for fast lookups
+    let searchDebounceTimer = null;   // Debounce timer for search
+    let statsCache = null;            // Cached statistics
+    let statsCacheTimestamp = null;   // When stats were cached
+    let performanceMetrics = {        // Track performance
+      searchTime: [],
+      renderTime: [],
+      exportTime: []
+    };
+
+    // Escape HTML to prevent XSS
+    //=============================================================================
+    // UTILITY FUNCTIONS
+    //=============================================================================
+    
+    function escapeHTML(str) {
+      if (!str) return '';
+      return str.replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+    }
+
+    // Debounce function to limit function calls
+    function debounce(func, delay) {
+      let debounceTimer;
+      return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => func.apply(context, args), delay);
+      };
+    }
+
+    //=============================================================================
+    // PHASE 3 REFINEMENT: PERFORMANCE OPTIMIZATION
+    //=============================================================================
+    
+    /**
+     * Build search index for fast lookups
+     * Creates an inverted index mapping terms to records
+     */
+    function buildSearchIndex() {
+      const startTime = performance.now();
+      
+      searchIndex = new Map();
+      
+      records.forEach((record, index) => {
+        // Combine all fields into searchable text
+        const searchText = Object.values(record).join(' ').toLowerCase();
+        
+        // Split into terms (words)
+        const terms = searchText.split(/\s+/).filter(term => term.length > 0);
+        
+        // Add each term to index
+        terms.forEach(term => {
+          if (!searchIndex.has(term)) {
+            searchIndex.set(term, new Set());
+          }
+          searchIndex.get(term).add(index);
+        });
+      });
+      
+      const endTime = performance.now();
+      logPerformance('indexBuild', endTime - startTime);
+      
+      return searchIndex;
+    }
+    
+    /**
+     * Optimized search using index
+     * Much faster than linear search for large datasets
+     */
+    function optimizedSearch(searchTerm) {
+      if (!searchTerm || searchTerm.trim() === '') {
+        return records;
+      }
+      
+      const startTime = performance.now();
+      
+      // Rebuild index if it doesn't exist
+      if (!searchIndex || searchIndex.size === 0) {
+        buildSearchIndex();
+      }
+      
+      const terms = searchTerm.toLowerCase().split(/\s+/).filter(t => t.length > 0);
+      
+      if (terms.length === 0) {
+        return records;
+      }
+      
+      // Find records matching all terms (AND logic)
+      let matchingIndices = null;
+      
+      for (const term of terms) {
+        // Find partial matches
+        const termMatches = new Set();
+        
+        for (const [indexedTerm, indices] of searchIndex.entries()) {
+          if (indexedTerm.includes(term)) {
+            indices.forEach(idx => termMatches.add(idx));
+          }
+        }
+        
+        if (matchingIndices === null) {
+          matchingIndices = termMatches;
+        } else {
+          // Intersect with previous matches
+          matchingIndices = new Set([...matchingIndices].filter(idx => termMatches.has(idx)));
+        }
+        
+        // If no matches, stop early
+        if (matchingIndices.size === 0) {
+          break;
+        }
+      }
+      
+      const results = matchingIndices ? [...matchingIndices].map(idx => records[idx]) : [];
+      
+      const endTime = performance.now();
+      logPerformance('search', endTime - startTime);
+      
+      return results;
+    }
+    
+    /**
+     * Invalidate search index when records change
+     */
+    function invalidateSearchIndex() {
+      searchIndex = null;
+    }
+    
+    /**
+     * Calculate statistics with caching
+     * Avoids recalculating unless data changed
+     */
+    function calculateStatsCached() {
+      // Check if cache is valid
+      if (statsCache && statsCacheTimestamp) {
+        const cacheAge = Date.now() - statsCacheTimestamp;
+        // Cache valid for 5 seconds
+        if (cacheAge < 5000) {
+          return statsCache;
+        }
+      }
+      
+      const startTime = performance.now();
+      
+      // Calculate stats
+      const stats = {
+        totalRecords: records.length,
+        uniqueEngineers: new Set(records.map(r => r['Engineer No.'])).size,
+        uniqueParts: new Set(records.map(r => r['Part No.'])).size,
+        partKeptYes: records.filter(r => r['Part Kept'] === 'Yes').length,
+        smcYes: records.filter(r => r['SMC'] === 'Yes').length,
+        mediaYes: records.filter(r => r['Media'] !== 'No').length
+      };
+      
+      // Cache the results
+      statsCache = stats;
+      statsCacheTimestamp = Date.now();
+      
+      const endTime = performance.now();
+      logPerformance('statsCalculation', endTime - startTime);
+      
+      return stats;
+    }
+    
+    /**
+     * Invalidate stats cache when records change
+     */
+    function invalidateStatsCache() {
+      statsCache = null;
+      statsCacheTimestamp = null;
+    }
+    
+    /**
+     * Log performance metrics
+     */
+    function logPerformance(operation, duration) {
+      if (!performanceMetrics[operation]) {
+        performanceMetrics[operation] = [];
+      }
+      
+      performanceMetrics[operation].push(duration);
+      
+      // Keep only last 100 measurements
+      if (performanceMetrics[operation].length > 100) {
+        performanceMetrics[operation].shift();
+      }
+      
+      // Log slow operations (> 100ms)
+      if (duration > 100) {
+        console.warn(`Slow operation: ${operation} took ${duration.toFixed(2)}ms`);
+      }
+    }
+    
+    /**
+     * Get performance statistics
+     */
+    function getPerformanceStats() {
+      const stats = {};
+      
+      for (const [operation, times] of Object.entries(performanceMetrics)) {
+        if (times.length > 0) {
+          const avg = times.reduce((a, b) => a + b, 0) / times.length;
+          const max = Math.max(...times);
+          const min = Math.min(...times);
+          
+          stats[operation] = {
+            average: avg.toFixed(2) + 'ms',
+            max: max.toFixed(2) + 'ms',
+            min: min.toFixed(2) + 'ms',
+            samples: times.length
+          };
+        }
+      }
+      
+      return stats;
+    }
+    
+    /**
+     * Optimized table rendering with batch DOM updates
+     */
+    function renderTableOptimized(recordsToRender) {
+      const startTime = performance.now();
+      
+      const tbody = document.getElementById('previewTable').getElementsByTagName('tbody')[0];
+      
+      // Use DocumentFragment for batch DOM updates
+      const fragment = document.createDocumentFragment();
+      
+      recordsToRender.forEach((record, idx) => {
+        const row = createTableRow(record, idx);
+        fragment.appendChild(row);
+      });
+      
+      // Single DOM update
+      tbody.innerHTML = '';
+      tbody.appendChild(fragment);
+      
+      const endTime = performance.now();
+      logPerformance('tableRender', endTime - startTime);
+    }
+    
+    /**
+     * Create a single table row
+     * Extracted for reusability and optimization
+     */
+    function createTableRow(record, index) {
+      const row = document.createElement('tr');
+      
+      // Add checkbox cell
+      const checkboxCell = document.createElement('td');
+      checkboxCell.className = 'checkbox-cell';
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.className = 'record-checkbox';
+      checkbox.checked = selectedRecords.has(index);
+      checkbox.addEventListener('change', () => toggleRecordSelection(index));
+      checkboxCell.appendChild(checkbox);
+      row.appendChild(checkboxCell);
+      
+      const keys = ['Ref No.', 'Serial No.', 'Part No.', 'Engineer No.', 'Call No.', 'Fault', 'Cause', 'Part Kept', 'SMC', 'Media', 'Site Details', 'Major Factor', 'Notes'];
+      
+      keys.forEach(key => {
+        const cell = document.createElement('td');
+        cell.textContent = record[key] || '';
+        row.appendChild(cell);
+      });
+      
+      // Action buttons cell
+      const actionCell = document.createElement('td');
+      actionCell.className = 'action-cell';
+      
+      const reviewBtn = document.createElement('button');
+      reviewBtn.className = 'action-btn review-btn';
+      reviewBtn.innerHTML = '<i class="fas fa-edit"></i>';
+      reviewBtn.title = 'Review & Edit';
+      reviewBtn.addEventListener('click', () => editRecord(index));
+      
+      const deleteBtn = document.createElement('button');
+      deleteBtn.className = 'action-btn delete-btn';
+      deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+      deleteBtn.title = 'Delete';
+      deleteBtn.addEventListener('click', () => deleteRecord(index));
+      
+      actionCell.appendChild(reviewBtn);
+      actionCell.appendChild(deleteBtn);
+      row.appendChild(actionCell);
+      
+      return row;
+    }
+
+    // Show Toast Notification
+    //=============================================================================
+    // TOAST NOTIFICATIONS
+    //=============================================================================
+    
+    /**
+     * Display a toast notification with icon support
+     * @param {string} message - The message to display
+     * @param {string} type - Toast type: 'success', 'error', 'warning', 'info' (optional, defaults to success)
+     */
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      
+      // 4.4 Add appropriate icon based on type
+      let icon = '';
+      switch(type) {
+        case 'success':
+          icon = '✓ ';
+          break;
+        case 'error':
+          icon = '✕ ';
+          break;
+        case 'warning':
+          icon = '⚠ ';
+          break;
+        case 'info':
+          icon = 'ℹ ';
+          break;
+        default:
+          icon = '';
+      }
+      
+      toast.textContent = icon + message;
+      toast.className = 'toast show';
+      setTimeout(() => { toast.className = toast.className.replace('show', ''); }, 3000);
+    }
+
+    // Display form message
+    function showFormMessage(message) {
+      const formMessage = document.getElementById('formMessage');
+      formMessage.textContent = message;
+      formMessage.classList.add('show');
+      setTimeout(() => {
+        formMessage.classList.remove('show');
+      }, 4000);
+    }
+
+    // Load records from local storage
+    window.onload = function() {
+      const storedRecords = localStorage.getItem('records');
+      if (storedRecords) {
+        records = JSON.parse(storedRecords);
+        updatePreviewTable();
+        
+        // PHASE 3 REFINEMENT: Build search index after loading records
+        if (records.length > 0) {
+          buildSearchIndex();
+        }
+      }
+      
+      // PHASE 3 REFINEMENT: Expose performance monitoring to console
+      window.getPerformanceStats = getPerformanceStats;
+      console.log('📊 Performance monitoring available. Run getPerformanceStats() to see metrics.');
+
+      // Help Button Event Listener
+      //=============================================================================
+    // HELP PANEL
+    //=============================================================================
+    
+    document.getElementById('helpBtn').addEventListener('click', function(){
+        const helpPanel = document.getElementById('helpPanel');
+        helpPanel.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        const helpPanelContent = document.getElementById('helpPanelContent');
+        setTimeout(() => {
+          helpPanelContent.focus();
+        }, 100);
+      });
+
+      // Help Panel Close Event Listener
+      document.getElementById('helpPanelClose').addEventListener('click', function(){
+        const helpPanel = document.getElementById('helpPanel');
+        helpPanel.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+
+      // Close help panel when clicking outside
+      window.addEventListener('click', function(event) {
+        const helpPanel = document.getElementById('helpPanel');
+        const helpBtn = document.getElementById('helpBtn');
+        if (helpPanel && helpPanel.style.display === 'flex' && 
+            !helpPanel.contains(event.target) && !helpBtn.contains(event.target)) {
+          helpPanel.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Help Panel TOC Link Scrolling
+      const helpPanelContent = document.getElementById('helpPanelContent');
+      const helpPanelHeader = document.getElementById('helpPanelHeader');
+      
+      if (helpPanelContent) {
+        helpPanelContent.addEventListener('click', function(e) {
+          const link = e.target.closest('a[href^="#guide-"]');
+          if (link) {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              const headerHeight = helpPanelHeader ? helpPanelHeader.offsetHeight : 0;
+              const scrollPosition = targetElement.offsetTop - headerHeight - 15;
+
+              helpPanelContent.scrollTo({
+                top: scrollPosition,
+                behavior: 'smooth'
+              });
+            }
+          }
+        });
+
+        helpPanelContent.setAttribute('tabindex', '0');
+      }
+
+      // Add sorting event listeners
+      addSortingListeners();
+
+      // Add event listener for stats toggle button
+      document.getElementById('toggleStatsBtn').addEventListener('click', toggleStats);
+    };
+
+    // Toggle stats panel visibility
+    function toggleStats() {
+      const statsPanel = document.getElementById('statsPanel');
+      const buttonText = document.getElementById('statsButtonText');
+      
+      statsVisible = !statsVisible;
+      
+      if (statsVisible) {
+        statsPanel.style.display = 'block';
+        buttonText.textContent = 'Hide Stats';
+        updateStats();
+      } else {
+        statsPanel.style.display = 'none';
+        buttonText.textContent = 'Show Stats';
+      }
+    }
+
+    // Update statistics based on current records
+    //=============================================================================
+    // STATISTICS DASHBOARD
+    //=============================================================================
+    
+    function updateStats() {
+      if (!statsVisible) return;
+      
+      // PHASE 3 REFINEMENT: Use cached statistics for better performance
+      const stats = calculateStatsCached();
+      
+      // Total records
+      document.getElementById('totalRecords').textContent = stats.totalRecords;
+      
+      // Parts kept
+      const partsKept = records.filter(record => record['Part Kept'] === 'Yes').length;
+      document.getElementById('partsKept').textContent = partsKept;
+      const partsKeptPercentage = records.length > 0 ? Math.round((partsKept / records.length) * 100) : 0;
+      document.getElementById('partsKeptPercentage').textContent = `${partsKeptPercentage}%`;
+      
+      // SMC kept
+      const smcKept = records.filter(record => record['SMC'] === 'Yes').length;
+      document.getElementById('smcKept').textContent = smcKept;
+      const smcKeptPercentage = records.length > 0 ? Math.round((smcKept / records.length) * 100) : 0;
+      document.getElementById('smcKeptPercentage').textContent = `${smcKeptPercentage}%`;
+      
+      // Media records
+      const mediaRecords = records.filter(record => record['Media'] !== 'No').length;
+      document.getElementById('mediaRecords').textContent = mediaRecords;
+      const mediaPercentage = records.length > 0 ? Math.round((mediaRecords / records.length) * 100) : 0;
+      document.getElementById('mediaPercentage').textContent = `${mediaPercentage}%`;
+      
+      // Priority distribution (based on Major Factor for high, presence of Cause for medium, others as low)
+      const highPriority = records.filter(record => record['Major Factor'] === 'Yes').length;
+      const mediumPriority = records.filter(record => record['Major Factor'] === 'No' && record['Cause'] && record['Cause'].trim() !== '').length;
+      const lowPriority = records.length - highPriority - mediumPriority;
+      
+      document.getElementById('highPriority').textContent = highPriority;
+      document.getElementById('mediumPriority').textContent = mediumPriority;
+      document.getElementById('lowPriority').textContent = lowPriority;
+      
+      // Recent activity
+      const recentActivityList = document.getElementById('recentActivity');
+      recentActivityList.innerHTML = '';
+      
+      if (records.length > 0) {
+        // Get 5 most recent records based on reference number (assuming latest refs are highest)
+        const sortedRecords = [...records].sort((a, b) => {
+          // Extract date part from ref number (assuming format: XXXX_TP_YYYYMMDD_Z)
+          const getDateFromRef = (ref) => {
+            const parts = ref.split('_');
+            return parts.length >= 3 ? parts[2] : '';
+          };
+          
+          const dateA = getDateFromRef(a['Ref No.']);
+          const dateB = getDateFromRef(b['Ref No.']);
+          
+          // Sort by date descending (most recent first)
+          return dateB.localeCompare(dateA);
+        });
+        
+        const recentRecords = sortedRecords.slice(0, 5);
+        
+        recentRecords.forEach(record => {
+          const li = document.createElement('li');
+          li.textContent = `${record['Serial No.']} - ${record['Fault'].substring(0, 30)}${record['Fault'].length > 30 ? '...' : ''}`;
+          recentActivityList.appendChild(li);
+        });
+      } else {
+        const li = document.createElement('li');
+        li.textContent = 'No recent activity';
+        recentActivityList.appendChild(li);
+      }
+      
+      // Engineer activity
+      const engineerActivity = document.getElementById('engineerActivity');
+      engineerActivity.innerHTML = '';
+      
+      if (records.length > 0) {
+        // Count records by engineer
+        const engineerCounts = {};
+        records.forEach(record => {
+          const engineer = record['Engineer No.'];
+          engineerCounts[engineer] = (engineerCounts[engineer] || 0) + 1;
+        });
+        
+        // Sort engineers by record count (descending)
+        const sortedEngineers = Object.keys(engineerCounts).sort((a, b) => engineerCounts[b] - engineerCounts[a]);
+        
+        sortedEngineers.forEach(engineer => {
+          const div = document.createElement('div');
+          div.className = 'engineer-activity-item';
+          div.innerHTML = `<span>${engineer}</span><span>${engineerCounts[engineer]} records</span>`;
+          engineerActivity.appendChild(div);
+        });
+      } else {
+        const div = document.createElement('div');
+        div.className = 'engineer-activity-item';
+        div.innerHTML = `<span>No data available</span>`;
+        engineerActivity.appendChild(div);
+      }
+    }
+
+    //=============================================================================
+    // PHASE 1 REFINEMENT: UNSAVED CHANGES WARNING & FORM TRACKING
+    //=============================================================================
+    
+    // Warn user before leaving page with unsaved changes
+    window.addEventListener('beforeunload', function(e) {
+      if (hasUnsavedChanges || editingIndex !== null) {
+        e.preventDefault();
+        e.returnValue = 'You have unsaved changes. Are you sure you want to leave?';
+        return e.returnValue;
+      }
+    });
+    
+    // Track form input changes to detect unsaved work
+    // This runs after DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // 4.7 Initialize theme
+      initializeTheme();
+      
+      // 4.7 Add theme toggle event listener
+      const themeToggle = document.getElementById('themeToggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+      }
+      
+      Logger.info('Application initialized');
+      
+      const formInputs = document.querySelectorAll('#recordForm input, #recordForm textarea, #recordForm select');
+      
+      formInputs.forEach(input => {
+        input.addEventListener('input', function() {
+          // Only set flag if user is actively entering data (not just empty form)
+          const hasContent = Array.from(formInputs).some(el => el.value && el.value.trim() !== '');
+          if (hasContent) {
+            hasUnsavedChanges = true;
+          }
+        });
+      });
+      
+      // PHASE 1 REFINEMENT: Prevent accidental form submission with Enter key
+      document.getElementById('recordForm').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          return false;
+        }
+      });
+      
+      // PHASE 1 REFINEMENT: Attempt emergency recovery on page load
+      if (records.length === 0) {
+        attemptEmergencyRecovery();
+      }
+      
+      // PHASE 2 REFINEMENT: Restore form draft on page load
+      restoreFormDraft();
+      
+      // PHASE 2 REFINEMENT: Start auto-save timer
+      startAutoSave();
+      
+      // PHASE 2 REFINEMENT: Focus management - focus first field on page load
+      setTimeout(() => {
+        document.getElementById('serialNumber').focus();
+      }, 100);
+    });
+    
+    //=============================================================================
+    // PHASE 2 REFINEMENT: GLOBAL KEYBOARD SHORTCUTS
+    //=============================================================================
+    
+    document.addEventListener('keydown', function(e) {
+      // Ctrl/Cmd + S: Export CSV
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+        document.getElementById('saveCsvBtn').click();
+        showToast('💾 Exporting records...');
+        return false;
+      }
+      
+      // Ctrl/Cmd + N: Focus on new record form (start new entry)
+      if ((e.ctrlKey || e.metaKey) && e.key === 'n') {
+        e.preventDefault();
+        // Clear form if in edit mode
+        if (editingIndex !== null) {
+          document.getElementById('clearFormBtn').click();
+        }
+        // Focus first field
+        document.getElementById('serialNumber').focus();
+        // Scroll to form
+        document.getElementById('recordForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        showToast('📝 Ready for new record');
+        return false;
+      }
+      
+      // Escape: Cancel edit mode or clear search
+      if (e.key === 'Escape') {
+        // If in edit mode, cancel it
+        if (editingIndex !== null) {
+          if (confirm('Cancel editing? Unsaved changes will be lost.')) {
+            document.getElementById('clearFormBtn').click();
+            showToast('✖️ Edit cancelled');
+          }
+          return;
+        }
+        
+        // If search is active, clear it
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput && searchInput.value) {
+          document.getElementById('resetSearchBtn').click();
+          showToast('🔍 Search cleared');
+          return;
+        }
+        
+        // If help panel is open, close it
+        const helpPanel = document.getElementById('helpPanel');
+        if (helpPanel && helpPanel.style.display === 'flex') {
+          document.getElementById('helpPanelClose').click();
+          return;
+        }
+      }
+      
+      // Ctrl/Cmd + F: Focus on search
+      if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+        e.preventDefault();
+        document.getElementById('searchInput').focus();
+        showToast('🔍 Search active');
+        return false;
+      }
+    });
+
+    // Event listeners for form buttons
+    // PHASE 1 REFINEMENT: Added double-click prevention and emergency backup
+    document.getElementById('addRecordBtn').addEventListener('click', function(){
+      // PHASE 1 REFINEMENT: Prevent double-click submissions
+      if (isSubmitting) {
+        console.log('Submission already in progress, ignoring duplicate click');
+        return;
+      }
+      
+      const form = document.getElementById('recordForm');
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      
+      // Set submission state and disable button
+      isSubmitting = true;
+      const addBtn = document.getElementById('addRecordBtn');
+      const originalButtonHTML = addBtn.innerHTML;
+      addBtn.disabled = true;
+      addBtn.innerHTML = '<i class="fas fa-spinner fa-spin btn-icon"></i>Processing...';
+
+      try {
+        const serialNumber = document.getElementById('serialNumber').value.trim();
+        const partNumber = document.getElementById('partNumber').value.trim();
+        const engineerNumber = document.getElementById('engineerNumber').value.trim();
+        const callNumber = document.getElementById('callNumber').value.trim();
+        const fault = document.getElementById('fault').value.trim();
+
+        const record = {
+          'Ref No.': editingIndex !== null ? records[editingIndex]['Ref No.'] : generateReferenceNumber(),
+          'Serial No.': escapeHTML(serialNumber),
+          'Part No.': escapeHTML(partNumber),
+          'Engineer No.': escapeHTML(engineerNumber),
+          'Call No.': escapeHTML(callNumber),
+          'Fault': escapeHTML(fault),
+          'Cause': escapeHTML(document.getElementById('cause').value.trim()),
+          'Part Kept': escapeHTML(document.getElementById('partKept').value),
+          'SMC': escapeHTML(document.getElementById('smcKept').value),
+          'Media': escapeHTML(document.getElementById('media').value),
+          'Site Details': escapeHTML(document.getElementById('siteDetails').value.trim()),
+          'Major Factor': escapeHTML(document.getElementById('majorFactor').value),
+          'Notes': escapeHTML(document.getElementById('additionalNotes').value.trim())
+        };
+
+        if (editingIndex !== null) {
+          records[editingIndex] = record;
+          editingIndex = null;
+          addBtn.innerHTML = '<i class="fas fa-plus-circle btn-icon"></i>Add Record';
+          showFormMessage('Record updated successfully.');
+          updatePreviewTable(); // No highlight for edits
+        } else {
+          records.push(record);
+          showFormMessage('Record added successfully.');
+          updatePreviewTable(true); // 4.4 Highlight newly added record
+        }
+        
+        // PHASE 3 REFINEMENT: Invalidate caches after record change
+        invalidateSearchIndex();
+        invalidateStatsCache();
+
+        // PHASE 1 REFINEMENT: Save with emergency backup
+        saveRecordsWithBackup();
+        
+        // PHASE 1 REFINEMENT: Clear unsaved changes flag after successful save
+        hasUnsavedChanges = false;
+        
+        // PHASE 2 REFINEMENT: Clear form draft after successful save
+        clearFormDraft();
+        
+        document.getElementById('recordForm').reset();
+        updateStats(); // Update statistics after adding/editing a record
+        
+        // PHASE 2 REFINEMENT: Focus management - return focus to first field
+        setTimeout(() => {
+          document.getElementById('serialNumber').focus();
+        }, 100);
+        
+      } catch (error) {
+        console.error('Error adding/updating record:', error);
+        showToast('❌ Error saving record. Please try again.');
+      } finally {
+        // Always re-enable button and reset submission state
+        isSubmitting = false;
+        addBtn.disabled = false;
+        if (addBtn.innerHTML.includes('Processing')) {
+          addBtn.innerHTML = originalButtonHTML;
+        }
+      }
+    });
+
+    document.getElementById('clearFormBtn').addEventListener('click', function(){
+      document.getElementById('recordForm').reset();
+      editingIndex = null;
+      document.getElementById('addRecordBtn').innerHTML = '<i class="fas fa-plus-circle btn-icon"></i>Add Record';
+      document.getElementById('formMessage').textContent = '';
+      // PHASE 1 REFINEMENT: Clear unsaved changes flag
+      hasUnsavedChanges = false;
+      // PHASE 2 REFINEMENT: Clear form draft when explicitly cleared
+      clearFormDraft();
+      // PHASE 2 REFINEMENT: Focus management - return focus to first field
+      setTimeout(() => {
+        document.getElementById('serialNumber').focus();
+      }, 100);
+    });
+
+    //=============================================================================
+    // REFERENCE NUMBER GENERATION
+    // PHASE 1 REFINEMENT: Added uniqueness validation to prevent duplicates
+    //=============================================================================
+    
+    function generateReferenceNumber() {
+      const engineerNumber = document.getElementById('engineerNumber').value.trim();
+      
+      // Create date in YYYYMMDD format
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      const dateStr = `${yyyy}${mm}${dd}`;
+      
+      // Get current sequence for this engineer and date
+      const engineerDateKey = `${engineerNumber}_${dateStr}`;
+      
+      // Get sequences from localStorage with error handling
+      let sequences = {};
+      try {
+        const storedSequences = localStorage.getItem(CONFIG.REF_SEQUENCES_KEY);
+        if (storedSequences) {
+          sequences = JSON.parse(storedSequences);
+        }
+      } catch (error) {
+        console.error('Failed to load reference sequences:', error);
+        sequences = {};
+      }
+      
+      // Check if we have a sequence for this engineer on this date
+      if (!sequences[engineerDateKey]) {
+        sequences[engineerDateKey] = 0;
+      }
+      
+      // PHASE 1 REFINEMENT: Generate unique reference number with collision detection
+      let refNo = '';
+      let attempts = 0;
+      const maxAttempts = 100;
+      
+      do {
+        // Increment sequence
+        sequences[engineerDateKey]++;
+        
+        // Generate reference number
+        refNo = `${engineerNumber}_TP_${dateStr}_${sequences[engineerDateKey]}`;
+        
+        // Check if this reference number already exists in records
+        const isDuplicate = records.some(record => record['Ref No.'] === refNo);
+        
+        if (!isDuplicate) {
+          // Unique reference number found, save sequence and exit loop
+          break;
+        }
+        
+        attempts++;
+        
+        if (attempts >= maxAttempts) {
+          console.error('Unable to generate unique reference number after 100 attempts');
+          showToast('⚠️ Warning: Could not generate unique reference number');
+          break;
+        }
+      } while (attempts < maxAttempts);
+      
+      // Store updated sequences with error handling
+      try {
+        localStorage.setItem(CONFIG.REF_SEQUENCES_KEY, JSON.stringify(sequences));
+      } catch (error) {
+        console.error('Failed to save reference sequences:', error);
+        showToast('⚠️ Warning: Could not save reference sequence');
+      }
+      
+      // Return formatted reference number
+      return refNo;
+    }
+
+    //=============================================================================
+    // LOCAL STORAGE - Enhanced Error Handling
+    //=============================================================================
+    
+    /**
+     * Save records to localStorage with error handling
+     * @returns {boolean} Success status
+     */
+    function saveRecordsToLocalStorage() {
+      try {
+        const dataToSave = JSON.stringify(records);
+        
+        // Check storage size (approximately 5MB limit)
+        if (dataToSave.length > CONFIG.MAX_STORAGE_SIZE) {
+          showToast('⚠️ Too much data to save. Please export and delete some old records.');
+          return false;
+        }
+        
+        localStorage.setItem(CONFIG.STORAGE_KEY, dataToSave);
+        return true;
+      } catch (error) {
+        console.error('Failed to save to localStorage:', error);
+        
+        if (error.name === 'QuotaExceededError') {
+          showToast('❌ Storage full! Please export your data and delete old records.');
+        } else if (error.name === 'SecurityError') {
+          showToast('❌ Cannot access storage. Please check browser settings.');
+        } else {
+          showToast('❌ Failed to save data. Please try again.');
+        }
+        
+        return false;
+      }
+    }
+    
+    /**
+     * Load records from localStorage with error handling
+     * @returns {boolean} Success status
+     */
+    function loadRecordsFromLocalStorage() {
+      try {
+        const stored = localStorage.getItem(CONFIG.STORAGE_KEY);
+        if (stored) {
+          records = JSON.parse(stored);
+          return true;
+        }
+      } catch (error) {
+        console.error('Failed to load from localStorage:', error);
+        showToast('⚠️ Could not load saved records. Starting fresh.');
+        records = [];
+      }
+      return false;
+    }
+    
+    /**
+     * Check if localStorage is available
+     * @returns {boolean} Availability status
+     */
+    function isLocalStorageAvailable() {
+      try {
+        const test = '__localStorage_test__';
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+    
+    //=============================================================================
+    // PHASE 1 REFINEMENT: EMERGENCY BACKUP & RECOVERY SYSTEM
+    //=============================================================================
+    
+    /**
+     * Create emergency backup in sessionStorage before critical operations
+     * This backup survives page refreshes but is cleared when browser closes
+     * @returns {boolean} Success status
+     */
+    function createEmergencyBackup() {
+      try {
+        const backupData = {
+          records: records,
+          timestamp: Date.now(),
+          refSequences: JSON.parse(localStorage.getItem(CONFIG.REF_SEQUENCES_KEY) || '{}')
+        };
+        sessionStorage.setItem('emergency_backup', JSON.stringify(backupData));
+        return true;
+      } catch (error) {
+        console.warn('Could not create emergency backup:', error);
+        return false;
+      }
+    }
+    
+    /**
+     * Attempt to recover data from emergency backup
+     * Called when localStorage fails or data appears corrupted
+     * @returns {boolean} Recovery success status
+     */
+    function attemptEmergencyRecovery() {
+      try {
+        const backup = sessionStorage.getItem('emergency_backup');
+        if (!backup) {
+          return false;
+        }
+        
+        const backupData = JSON.parse(backup);
+        
+        // Only use backup if it's less than 24 hours old
+        const backupAge = Date.now() - backupData.timestamp;
+        const maxAge = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+        
+        if (backupAge > maxAge) {
+          console.log('Emergency backup too old, ignoring');
+          sessionStorage.removeItem('emergency_backup');
+          return false;
+        }
+        
+        // Restore records from backup
+        if (backupData.records && Array.isArray(backupData.records)) {
+          records = backupData.records;
+          
+          // Try to save to localStorage
+          if (saveRecordsToLocalStorage()) {
+            showToast('✅ Recovered data from emergency backup!');
+            updatePreviewTable();
+            updateStats();
+            return true;
+          }
+        }
+        
+        return false;
+      } catch (error) {
+        console.error('Emergency recovery failed:', error);
+        return false;
+      }
+    }
+    
+    /**
+     * Enhanced save with automatic emergency backup
+     * @returns {boolean} Success status
+     */
+    function saveRecordsWithBackup() {
+      // Create emergency backup before attempting save
+      createEmergencyBackup();
+      
+      // Attempt to save
+      const saveSuccess = saveRecordsToLocalStorage();
+      
+      // If save failed, offer recovery option
+      if (!saveSuccess && records.length > 0) {
+        console.log('Save failed, emergency backup is available');
+      }
+      
+      return saveSuccess;
+    }
+    
+    //=============================================================================
+    // PHASE 2 REFINEMENT: FORM AUTO-SAVE & RESTORE
+    //=============================================================================
+    
+    /**
+     * Save current form state to sessionStorage as a draft
+     * This runs automatically every 5 seconds while user is typing
+     */
+    function autoSaveFormDraft() {
+      try {
+        const formData = {
+          serialNumber: document.getElementById('serialNumber').value,
+          partNumber: document.getElementById('partNumber').value,
+          engineerNumber: document.getElementById('engineerNumber').value,
+          callNumber: document.getElementById('callNumber').value,
+          fault: document.getElementById('fault').value,
+          cause: document.getElementById('cause').value,
+          partKept: document.getElementById('partKept').value,
+          smcKept: document.getElementById('smcKept').value,
+          media: document.getElementById('media').value,
+          siteDetails: document.getElementById('siteDetails').value,
+          majorFactor: document.getElementById('majorFactor').value,
+          additionalNotes: document.getElementById('additionalNotes').value,
+          timestamp: Date.now(),
+          editingIndex: editingIndex
+        };
+        
+        // Only save if there's actual content
+        const hasContent = Object.values(formData).some(val => 
+          val && val.toString().trim() !== '' && val !== editingIndex && val !== formData.timestamp
+        );
+        
+        if (hasContent) {
+          sessionStorage.setItem('formDraft', JSON.stringify(formData));
+          lastAutoSave = Date.now();
+          
+          // Show subtle indicator that draft was saved
+          const btn = document.getElementById('addRecordBtn');
+          const originalTitle = btn.title;
+          btn.title = 'Draft auto-saved';
+          setTimeout(() => {
+            btn.title = originalTitle || '';
+          }, 2000);
+        }
+      } catch (error) {
+        console.warn('Could not auto-save form draft:', error);
+      }
+    }
+    
+    /**
+     * Restore form draft from sessionStorage if available
+     * Called on page load to recover unsaved work
+     */
+    function restoreFormDraft() {
+      try {
+        const draft = sessionStorage.getItem('formDraft');
+        if (!draft) return false;
+        
+        const data = JSON.parse(draft);
+        
+        // Only restore if less than 1 hour old
+        const draftAge = Date.now() - data.timestamp;
+        const maxAge = 60 * 60 * 1000; // 1 hour in milliseconds
+        
+        if (draftAge > maxAge) {
+          sessionStorage.removeItem('formDraft');
+          return false;
+        }
+        
+        // Check if form is empty before restoring
+        const formInputs = document.querySelectorAll('#recordForm input, #recordForm textarea, #recordForm select');
+        const formIsEmpty = Array.from(formInputs).every(el => !el.value || el.value.trim() === '' || el.tagName === 'SELECT');
+        
+        if (!formIsEmpty) {
+          // Form has content, ask user if they want to restore
+          if (!confirm('A draft from your previous session was found. Do you want to restore it?')) {
+            sessionStorage.removeItem('formDraft');
+            return false;
+          }
+        }
+        
+        // Restore form fields
+        document.getElementById('serialNumber').value = data.serialNumber || '';
+        document.getElementById('partNumber').value = data.partNumber || '';
+        document.getElementById('engineerNumber').value = data.engineerNumber || '';
+        document.getElementById('callNumber').value = data.callNumber || '';
+        document.getElementById('fault').value = data.fault || '';
+        document.getElementById('cause').value = data.cause || '';
+        document.getElementById('partKept').value = data.partKept || 'Yes';
+        document.getElementById('smcKept').value = data.smcKept || 'Yes';
+        document.getElementById('media').value = data.media || 'No';
+        document.getElementById('siteDetails').value = data.siteDetails || '';
+        document.getElementById('majorFactor').value = data.majorFactor || 'Yes';
+        document.getElementById('additionalNotes').value = data.additionalNotes || '';
+        
+        // Restore editing state if was editing
+        if (data.editingIndex !== null && data.editingIndex !== undefined) {
+          editingIndex = data.editingIndex;
+          document.getElementById('addRecordBtn').innerHTML = '<i class="fas fa-save btn-icon"></i>Update Record';
+        }
+        
+        showToast('📝 Restored unsaved draft from previous session');
+        hasUnsavedChanges = true;
+        
+        return true;
+      } catch (error) {
+        console.warn('Could not restore form draft:', error);
+        return false;
+      }
+    }
+    
+    /**
+     * Clear form draft from sessionStorage
+     * Called after successful save or explicit form clear
+     */
+    function clearFormDraft() {
+      try {
+        sessionStorage.removeItem('formDraft');
+        lastAutoSave = null;
+      } catch (error) {
+        console.warn('Could not clear form draft:', error);
+      }
+    }
+    
+    /**
+     * Start auto-save timer
+     * Saves form draft every 5 seconds while user is typing
+     */
+    function startAutoSave() {
+      if (autoSaveTimer) {
+        clearInterval(autoSaveTimer);
+      }
+      
+      // Auto-save every 5 seconds
+      autoSaveTimer = setInterval(() => {
+        if (hasUnsavedChanges) {
+          autoSaveFormDraft();
+        }
+      }, 5000);
+    }
+    
+    /**
+     * Stop auto-save timer
+     */
+    function stopAutoSave() {
+      if (autoSaveTimer) {
+        clearInterval(autoSaveTimer);
+        autoSaveTimer = null;
+      }
+    }
+
+    //=============================================================================
+    // RECORD MANAGEMENT - Edit/Delete
+    //=============================================================================
+    
+    function editRecord(index){
+      const record = records[index];
+      document.getElementById('serialNumber').value = record['Serial No.'];
+      document.getElementById('partNumber').value = record['Part No.'];
+      document.getElementById('engineerNumber').value = record['Engineer No.'];
+      document.getElementById('callNumber').value = record['Call No.'];
+      document.getElementById('fault').value = record['Fault'];
+      document.getElementById('cause').value = record['Cause'];
+      document.getElementById('partKept').value = record['Part Kept'];
+      document.getElementById('smcKept').value = record['SMC'];
+      document.getElementById('media').value = record['Media'];
+      document.getElementById('siteDetails').value = record['Site Details'];
+      document.getElementById('majorFactor').value = record['Major Factor'];
+      document.getElementById('additionalNotes').value = record['Notes'];
+
+      editingIndex = index;
+      document.getElementById('addRecordBtn').innerHTML = '<i class="fas fa-save btn-icon"></i>Update Record';
+      
+      // Scroll to form
+      document.querySelector('#recordForm').scrollIntoView({ behavior: 'smooth' });
+      
+      // PHASE 2 REFINEMENT: Focus on first field after scroll
+      setTimeout(() => {
+        document.getElementById('serialNumber').focus();
+      }, 500);
+      
+      showToast(`Editing record ${record['Ref No.']}`);
+    }
+
+    function deleteRecord(index){
+      if (confirm('Are you sure you want to delete this record?')) {
+        records.splice(index, 1);
+        
+        // PHASE 3 REFINEMENT: Invalidate caches after record deletion
+        invalidateSearchIndex();
+        invalidateStatsCache();
+        
+        const totalPages = Math.ceil(records.length / recordsPerPage);
+        if (currentPage > totalPages && currentPage > 1) {
+          currentPage = totalPages || 1;
+        }
+        updatePreviewTable();
+        updateStats(); // Update statistics after deleting a record
+        showToast('Record deleted successfully.');
+      }
+    }
+
+    //=============================================================================
+    // TABLE RENDERING & DISPLAY
+    //=============================================================================
+    
+    /**
+     * Update the preview table with current records
+     * @param {boolean} highlightLast - Whether to highlight the last record as newly added
+     */
+    function updatePreviewTable(highlightLast = false){
+      const tbody = document.getElementById('previewTable').getElementsByTagName('tbody')[0];
+      tbody.innerHTML = '';
+      const startIndex = (currentPage - 1) * recordsPerPage;
+      const endIndex = startIndex + recordsPerPage;
+      const paginatedRecords = records.slice(startIndex, endIndex);
+      const fragment = document.createDocumentFragment();
+
+      paginatedRecords.forEach((record, index) => {
+        const row = document.createElement('tr');
+        
+        // 4.4 HIGHLIGHT RECENTLY ADDED RECORD
+        const actualIndex = startIndex + index;
+        if (highlightLast && actualIndex === records.length - 1) {
+          row.className = 'recently-modified';
+        }
+        
+        // Add checkbox cell
+        const checkboxCell = document.createElement('td');
+        checkboxCell.className = 'checkbox-cell';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'record-checkbox';
+        const recordIndex = records.findIndex(r => r['Ref No.'] === record['Ref No.']);
+        checkbox.checked = selectedRecords.has(recordIndex);
+        checkbox.addEventListener('change', () => toggleRecordSelection(recordIndex));
+        checkboxCell.appendChild(checkbox);
+        row.appendChild(checkboxCell);
+        const keys = ['Ref No.', 'Serial No.', 'Part No.', 'Engineer No.', 'Call No.', 'Fault', 'Cause', 'Part Kept', 'SMC', 'Media', 'Site Details', 'Major Factor', 'Notes'];
+
+        keys.forEach(key => {
+          const cell = document.createElement('td');
+          if (record[key] && record[key].length > 20) {
+            cell.setAttribute('title', record[key]);
+          }
+          cell.textContent = record[key];
+          row.appendChild(cell);
+        });
+
+        const actionsCell = document.createElement('td');
+        const actionsContainer = document.createElement('div');
+        actionsContainer.className = 'actions-container';
+
+        const editButton = document.createElement('button');
+        editButton.innerHTML = '<i class="fas fa-edit action-icon"></i>Review';
+        editButton.className = 'edit-btn';
+        editButton.title = "Review/Edit Record";
+        editButton.setAttribute('aria-label', `Review record ${record['Ref No.']}`);
+        editButton.addEventListener('click', () => {
+          const realIndex = records.findIndex(r => r['Ref No.'] === record['Ref No.']);
+          if (realIndex !== -1) {
+            editRecord(realIndex);
+          }
+        });
+        actionsContainer.appendChild(editButton);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.innerHTML = '<i class="fas fa-trash-alt action-icon"></i>Delete';
+        deleteButton.className = 'delete-btn';
+        deleteButton.title = "Delete Record";
+        deleteButton.setAttribute('aria-label', `Delete record ${record['Ref No.']}`);
+        deleteButton.addEventListener('click', () => {
+          const realIndex = records.findIndex(r => r['Ref No.'] === record['Ref No.']);
+          if (realIndex !== -1) {
+            deleteRecord(realIndex);
+          }
+        });
+        actionsContainer.appendChild(deleteButton);
+
+        actionsCell.appendChild(actionsContainer);
+        row.appendChild(actionsCell);
+        fragment.appendChild(row);
+      });
+
+      tbody.appendChild(fragment);
+      
+      // 4.5 IMPROVED EMPTY STATE
+      if (records.length === 0) {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+        cell.colSpan = 14;
+        cell.style.textAlign = 'center';
+        cell.style.padding = '60px 20px';
+        cell.innerHTML = `
+          <div style="color: var(--gray-500);">
+            <i class="fas fa-inbox" style="font-size: 64px; opacity: 0.3; margin-bottom: 20px;"></i>
+            <h3 style="color: var(--gray-800); font-size: 1.25rem; margin-bottom: 12px;">No Records Yet</h3>
+            <p style="color: var(--gray-600); margin-bottom: 24px;">Start documenting poor performing parts by filling out the form above.<br>Your records will appear here for easy management and tracking.</p>
+          </div>
+        `;
+        row.appendChild(cell);
+        tbody.appendChild(row);
+      }
+
+      // PHASE 1 REFINEMENT: Use enhanced save with backup
+      saveRecordsWithBackup();
+      renderPaginationControls();
+    }
+
+    //=============================================================================
+    // SEARCH & FILTER
+    // PHASE 3 REFINEMENT: Optimized with indexed search
+    //============================================================================= 
+    const handleSearch = debounce(function(){
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      if (!searchTerm) {
+        currentPage = 1;
+        updatePreviewTable();
+        return;
+      }
+      
+      // PHASE 3 REFINEMENT: Use optimized indexed search
+      const filteredRecords = optimizedSearch(searchTerm);
+      displayFilteredRecords(filteredRecords);
+    }, 300);
+
+    document.getElementById('searchInput').addEventListener('input', handleSearch);
+    document.getElementById('searchBtn').addEventListener('click', handleSearch);
+
+    function displayFilteredRecords(filteredRecords){
+      const tbody = document.getElementById('previewTable').getElementsByTagName('tbody')[0];
+      tbody.innerHTML = '';
+      const fragment = document.createDocumentFragment();
+
+      filteredRecords.forEach((record) => {
+        const row = document.createElement('tr');
+        
+        // Add checkbox cell
+        const checkboxCell = document.createElement('td');
+        checkboxCell.className = 'checkbox-cell';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'record-checkbox';
+        const recordIndex = records.findIndex(r => r['Ref No.'] === record['Ref No.']);
+        checkbox.checked = selectedRecords.has(recordIndex);
+        checkbox.addEventListener('change', () => toggleRecordSelection(recordIndex));
+        checkboxCell.appendChild(checkbox);
+        row.appendChild(checkboxCell);
+        const keys = ['Ref No.', 'Serial No.', 'Part No.', 'Engineer No.', 'Call No.', 'Fault', 'Cause', 'Part Kept', 'SMC', 'Media', 'Site Details', 'Major Factor', 'Notes'];
+
+        keys.forEach(key => {
+          const cell = document.createElement('td');
+          if (record[key] && record[key].length > 20) {
+            cell.setAttribute('title', record[key]);
+          }
+          cell.textContent = record[key];
+          row.appendChild(cell);
+        });
+
+        const actionsCell = document.createElement('td');
+        const actionsContainer = document.createElement('div');
+        actionsContainer.className = 'actions-container';
+
+        const editButton = document.createElement('button');
+        editButton.innerHTML = '<i class="fas fa-edit action-icon"></i>Review';
+        editButton.className = 'edit-btn';
+        editButton.title = "Review/Edit Record";
+        editButton.setAttribute('aria-label', `Review record ${record['Ref No.']}`);
+        editButton.addEventListener('click', () => {
+          const realIndex = records.findIndex(r => r['Ref No.'] === record['Ref No.']);
+          if (realIndex !== -1) {
+            editRecord(realIndex);
+          }
+        });
+        actionsContainer.appendChild(editButton);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.innerHTML = '<i class="fas fa-trash-alt action-icon"></i>Delete';
+        deleteButton.className = 'delete-btn';
+        deleteButton.title = "Delete Record";
+        deleteButton.setAttribute('aria-label', `Delete record ${record['Ref No.']}`);
+        deleteButton.addEventListener('click', () => {
+          const realIndex = records.findIndex(r => r['Ref No.'] === record['Ref No.']);
+          if (realIndex !== -1) {
+            deleteRecord(realIndex);
+          }
+        });
+        actionsContainer.appendChild(deleteButton);
+
+        actionsCell.appendChild(actionsContainer);
+        row.appendChild(actionsCell);
+        fragment.appendChild(row);
+      });
+
+      tbody.appendChild(fragment);
+      
+      if (filteredRecords.length === 0) {
+        const row = document.createElement('tr');
+        const cell = document.createElement('td');
+        cell.textContent = 'No matching records found';
+        cell.colSpan = 14;
+        cell.style.textAlign = 'center';
+        cell.style.padding = '20px';
+        row.appendChild(cell);
+        tbody.appendChild(row);
+      }
+      // Note: Pagination is hidden for filtered results for simplicity.
+      document.getElementById('pagination').innerHTML = '';
+    }
+
+    document.getElementById('resetSearchBtn').addEventListener('click', function(){
+      document.getElementById('searchInput').value = '';
+      currentPage = 1;
+      updatePreviewTable();
+    });
+
+    // Import CSV functionality
+    //=============================================================================
+    // IMPORT/EXPORT FUNCTIONALITY
+    //=============================================================================
+    
+    document.getElementById('importCsvBtn').addEventListener('click', function(){
+      document.getElementById('csvFileInput').click();
+    });
+
+    document.getElementById('csvFileInput').addEventListener('change', function(event){
+      const file = event.target.files[0];
+      if (file) {
+        // PHASE 1 REFINEMENT: Validate file type
+        if (!file.name.endsWith('.csv')) {
+          showToast('⚠️ Please select a CSV file');
+          event.target.value = ''; // Reset file input
+          return;
+        }
+        
+        // PHASE 1 REFINEMENT: Create backup before importing
+        createEmergencyBackup();
+        
+        Papa.parse(file, {
+          header: true,
+          skipEmptyLines: true,
+          complete: function(results) {
+            const importedRecords = results.data;
+            let addedCount = 0;
+            let skippedCount = 0;
+            let invalidCount = 0;
+            
+            importedRecords.forEach(importedRecord => {
+              const mappedRecord = {
+                'Ref No.': importedRecord['Ref No.'] || generateReferenceNumber(),
+                'Serial No.': escapeHTML(importedRecord['Serial No.'] || importedRecord['Model No.'] || ''),
+                'Part No.': escapeHTML(importedRecord['Part No.'] || importedRecord['Part Number'] || ''),
+                'Engineer No.': escapeHTML(importedRecord['Engineer No.'] || importedRecord['Engineer Number'] || ''),
+                'Call No.': escapeHTML(importedRecord['Call No.'] || importedRecord['Call or Tech Report Number'] || ''),
+                'Fault': escapeHTML(importedRecord['Fault'] || ''),
+                'Cause': escapeHTML(importedRecord['Cause'] || ''),
+                'Part Kept': escapeHTML(importedRecord['Part Kept'] || ''),
+                'SMC': escapeHTML(importedRecord['SMC'] || ''),
+                'Media': escapeHTML(importedRecord['Media'] || ''),
+                'Site Details': escapeHTML(importedRecord['Site Details'] || importedRecord['Location'] || importedRecord['Location Details'] || ''),
+                'Major Factor': escapeHTML(importedRecord['Major Factor'] || importedRecord['Climate'] || ''),
+                'Notes': escapeHTML(importedRecord['Notes'] || importedRecord['Additional Notes'] || '')
+              };
+              
+              // PHASE 1 REFINEMENT: Validate required fields
+              const requiredFields = ['Serial No.', 'Part No.', 'Engineer No.', 'Call No.', 'Fault'];
+              const hasAllRequired = requiredFields.every(field => 
+                mappedRecord[field] && mappedRecord[field].trim() !== ''
+              );
+              
+              if (!hasAllRequired) {
+                invalidCount++;
+                console.warn('Skipping invalid record (missing required fields):', mappedRecord);
+                return; // Skip this record
+              }
+              
+              // Check if record with same Ref No. already exists
+              const existingIndex = records.findIndex(r => r['Ref No.'] === mappedRecord['Ref No.']);
+              if (existingIndex === -1) {
+                // Record doesn't exist, add it
+                records.push(mappedRecord);
+                addedCount++;
+              } else {
+                // Record already exists, skip it
+                skippedCount++;
+              }
+            });
+            
+            // PHASE 3 REFINEMENT: Invalidate caches after import
+            if (addedCount > 0) {
+              invalidateSearchIndex();
+              invalidateStatsCache();
+            }
+            
+            currentPage = 1;
+            updatePreviewTable();
+            updateStats(); // Update statistics after importing records
+            
+            // PHASE 1 REFINEMENT: Show comprehensive import feedback
+            let message = '';
+            if (addedCount > 0) {
+              message += `Imported ${addedCount} record${addedCount !== 1 ? 's' : ''}`;
+            }
+            if (skippedCount > 0) {
+              message += `${addedCount > 0 ? '. ' : ''}Skipped ${skippedCount} duplicate${skippedCount !== 1 ? 's' : ''}`;
+            }
+            if (invalidCount > 0) {
+              message += `${(addedCount > 0 || skippedCount > 0) ? '. ' : ''}Rejected ${invalidCount} invalid record${invalidCount !== 1 ? 's' : ''} (missing required fields)`;
+            }
+            if (addedCount === 0 && skippedCount === 0 && invalidCount === 0) {
+              message = 'No records to import';
+            }
+            
+            showToast(message || 'Import completed');
+          },
+          error: function(err) {
+            // PHASE 1 REFINEMENT: Enhanced error handling for CSV parsing
+            console.error('CSV parsing error:', err);
+            showToast('❌ Error parsing CSV file. Please check the file format.');
+          }
+        });
+      }
+    });
+
+    //=============================================================================
+    // PRINT FUNCTIONALITY
+    //=============================================================================
+    document.getElementById('printBtn').addEventListener('click', function(){
+      const printWindow = window.open('', '', 'height=600,width=800');
+      printWindow.document.write('<html><head><title>Ricoh Triple P Records</title>');
+      printWindow.document.write('<style>');
+      printWindow.document.write('body { font-family: Arial, sans-serif; padding: 20px; }');
+      printWindow.document.write('h1 { color: #0046AD; text-align: center; }');
+      printWindow.document.write('table { width: 100%; border-collapse: collapse; margin-top: 20px; }');
+      printWindow.document.write('th, td { border: 1px solid #ddd; padding: 8px; font-size: 12px; }');
+      printWindow.document.write('th { background-color: #0046AD; color: white; }');
+      printWindow.document.write('tr:nth-child(even) { background-color: #f2f2f2; }');
+      printWindow.document.write('@media print { .no-print { display: none; } }');
+      printWindow.document.write('</style></head><body>');
+      printWindow.document.write('<h1><span style="color: rgb(237, 23, 31);">Ricoh</span> Triple P Records</h1>');
+      
+      // Create a new table without action column for printing
+      const table = document.getElementById('previewTable').cloneNode(true);
+      const actionHeader = table.querySelector('th:last-child');
+      const actionCells = table.querySelectorAll('td:last-child');
+      
+      if (actionHeader) actionHeader.remove();
+      actionCells.forEach(cell => cell.remove());
+      
+      printWindow.document.write(table.outerHTML);
+      printWindow.document.write('<div class="no-print" style="text-align: center; margin-top: 20px;">');
+      printWindow.document.write('<button onclick="window.print()">Print</button>');
+      printWindow.document.write('<button onclick="window.close()">Close</button>');
+      printWindow.document.write('</div>');
+      printWindow.document.write('</body></html>');
+      printWindow.document.close();
+      
+      // Focus on the new window
+      printWindow.focus();
+    });
+
+    
+    //=============================================================================
+    // CSV SECURITY - Prevent Formula Injection
+    //=============================================================================
+    
+    /**
+     * Sanitize value for CSV to prevent formula injection attacks
+     * @param {string} value - Value to sanitize
+     * @returns {string} Sanitized value
+     */
+    function sanitizeForCSV(value) {
+      if (!value) return '';
+      let sanitized = String(value);
+      
+      // Prevent formula injection by prefixing dangerous characters
+      if (sanitized.startsWith('=') || sanitized.startsWith('+') || 
+          sanitized.startsWith('-') || sanitized.startsWith('@') ||
+          sanitized.startsWith('\t') || sanitized.startsWith('\r')) {
+        sanitized = "'" + sanitized;
+      }
+      
+      return sanitized;
+    }
+
+// Save as CSV functionality
+    document.getElementById('saveCsvBtn').addEventListener('click', function(){
+      if (records.length === 0) {
+        alert('No records to save.');
+        return;
+      }
+
+      // Sanitize records before CSV export to prevent formula injection
+      const sanitizedRecords = records.map(record => {
+        const sanitized = {};
+        for (const key in record) {
+          sanitized[key] = sanitizeForCSV(record[key]);
+        }
+        return sanitized;
+      });
+      const csv = Papa.unparse(sanitizedRecords);
+      const filename = document.getElementById('filename').value || 'records.csv';
+      const blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
+      const link = document.createElement("a");
+
+      if (navigator.msSaveBlob) {
+        navigator.msSaveBlob(blob, filename);
+      } else if (link.download !== undefined) {
+        const url = URL.createObjectURL(blob);
+        link.setAttribute("href", url);
+        link.setAttribute("download", filename);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        alert('Your browser does not support file downloading.');
+      }
+    });
+
+    //=============================================================================
+    // PAGINATION CONTROLS
+    //=============================================================================
+    function renderPaginationControls(){
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = '';
+      const totalPages = Math.ceil(records.length / recordsPerPage);
+      
+      if (totalPages <= 1) return;
+      
+      // Add previous button
+      if (currentPage > 1) {
+        const prevBtn = document.createElement('button');
+        prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        prevBtn.addEventListener('click', () => {
+          currentPage--;
+          updatePreviewTable();
+        });
+        pagination.appendChild(prevBtn);
+      }
+      
+      // Determine range of page buttons to show
+      let startPage = Math.max(1, currentPage - 2);
+      let endPage = Math.min(totalPages, startPage + 4);
+      
+      // Adjust if we're near the end
+      if (endPage - startPage < 4) {
+        startPage = Math.max(1, endPage - 4);
+      }
+      
+      // First page button if not in range
+      if (startPage > 1) {
+        const firstBtn = document.createElement('button');
+        firstBtn.textContent = '1';
+        firstBtn.addEventListener('click', () => {
+          currentPage = 1;
+          updatePreviewTable();
+        });
+        pagination.appendChild(firstBtn);
+        
+        if (startPage > 2) {
+          const ellipsis = document.createElement('span');
+          ellipsis.textContent = '...';
+          ellipsis.style.margin = '0 5px';
+          pagination.appendChild(ellipsis);
+        }
+      }
+      
+      // Page buttons
+      for (let i = startPage; i <= endPage; i++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.textContent = i;
+        if (i === currentPage) {
+          pageBtn.disabled = true;
+        }
+        pageBtn.addEventListener('click', () => {
+          currentPage = i;
+          updatePreviewTable();
+        });
+        pagination.appendChild(pageBtn);
+      }
+      
+      // Last page button if not in range
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          const ellipsis = document.createElement('span');
+          ellipsis.textContent = '...';
+          ellipsis.style.margin = '0 5px';
+          pagination.appendChild(ellipsis);
+        }
+        
+        const lastBtn = document.createElement('button');
+        lastBtn.textContent = totalPages;
+        lastBtn.addEventListener('click', () => {
+          currentPage = totalPages;
+          updatePreviewTable();
+        });
+        pagination.appendChild(lastBtn);
+      }
+      
+      // Add next button
+      if (currentPage < totalPages) {
+        const nextBtn = document.createElement('button');
+        nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        nextBtn.addEventListener('click', () => {
+          currentPage++;
+          updatePreviewTable();
+        });
+        pagination.appendChild(nextBtn);
+      }
+    }
+
+    //=============================================================================
+    // SORTING FUNCTIONALITY
+    //=============================================================================
+    function addSortingListeners(){
+      const headers = document.querySelectorAll('#previewTable th[data-key]');
+      headers.forEach(header => {
+        header.addEventListener('click', () => {
+          const key = header.getAttribute('data-key');
+          const order = currentSort.key === key && currentSort.order === 'asc' ? 'desc' : 'asc';
+          sortRecords(key, order);
+          currentSort = { key, order };
+          updateSortIndicators();
+          updatePreviewTable();
+        });
+      });
+    }
+
+    function sortRecords(key, order){
+      records.sort((a, b) => {
+        const valA = (a[key] || '').toString().toLowerCase();
+        const valB = (b[key] || '').toString().toLowerCase();
+        if (valA < valB) return order === 'asc' ? -1 : 1;
+        if (valA > valB) return order === 'asc' ? 1 : -1;
+        return 0;
+      });
+    }
+
+    function updateSortIndicators(){
+      const headers = document.querySelectorAll('#previewTable th[data-key]');
+      headers.forEach(header => {
+        const indicator = header.querySelector('.sort-indicator');
+        const key = header.getAttribute('data-key');
+        if (currentSort.key === key) {
+          indicator.textContent = currentSort.order === 'asc' ? ' ▲' : ' ▼';
+        } else {
+          indicator.textContent = '';
+        }
+      });
+    }
+    
+    // Modal functionality
+    const modal = document.getElementById('fullScreenModal');
+    const fullScreenBtn = document.getElementById('fullScreenBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modalTableContainer = document.getElementById('modalTableContainer');
+    const expandedViewContainer = document.getElementById('expandedViewContainer');
+    const compactViewBtn = document.getElementById('compactViewBtn');
+    const expandedViewBtn = document.getElementById('expandedViewBtn');
+    
+    // Modal state variables
+    let modalCurrentView = 'table';
+    let modalCurrentPage = 1;
+    let modalRecordsPerPage = 20;
+    let modalFilteredRecords = [];
+    let modalCurrentSort = { key: null, order: 'asc' };
+    
+    // Open modal
+    fullScreenBtn.addEventListener('click', function() {
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      modalFilteredRecords = [...records];
+      modalCurrentPage = 1;
+      updateModalView();
+    });
+    
+    // Close modal
+    closeModalBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+    
+    // Close modal if clicking outside
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+    
+    // Search in modal
+    document.getElementById('modalSearchBtn').addEventListener('click', performModalSearch);
+    document.getElementById('modalSearchInput').addEventListener('input', debounce(performModalSearch, 300));
+    
+    // Reset search in modal
+    document.getElementById('modalResetBtn').addEventListener('click', function() {
+      document.getElementById('modalSearchInput').value = '';
+      document.getElementById('columnFilter').value = 'all';
+      modalFilteredRecords = [...records];
+      modalCurrentPage = 1;
+      updateModalView();
+    });
+    
+    // Switch view types
+    compactViewBtn.addEventListener('click', function() {
+      if (modalCurrentView !== 'table') {
+        modalCurrentView = 'table';
+        compactViewBtn.classList.add('active');
+        expandedViewBtn.classList.remove('active');
+        modalTableContainer.style.display = 'block';
+        expandedViewContainer.style.display = 'none';
+        updateModalView();
+      }
+    });
+    
+    expandedViewBtn.addEventListener('click', function() {
+      if (modalCurrentView !== 'expanded') {
+        modalCurrentView = 'expanded';
+        expandedViewBtn.classList.add('active');
+        compactViewBtn.classList.remove('active');
+        modalTableContainer.style.display = 'none';
+        expandedViewContainer.style.display = 'grid';
+        updateModalView();
+      }
+    });
+    
+    // Export current filtered view
+    document.getElementById('exportModalBtn').addEventListener('click', function() {
+      if (modalFilteredRecords.length === 0) {
+        showToast('No records to export.');
+        return;
+      }
+
+      const csv = Papa.unparse(modalFilteredRecords);
+      const filename = `Ricoh_Triple_P_Export_${new Date().toISOString().slice(0,10)}.csv`;
+      const blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
+      const link = document.createElement("a");
+
+      if (navigator.msSaveBlob) {
+        navigator.msSaveBlob(blob, filename);
+      } else if (link.download !== undefined) {
+        const url = URL.createObjectURL(blob);
+        link.setAttribute("href", url);
+        link.setAttribute("download", filename);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        alert('Your browser does not support file downloading.');
+      }
+      
+      showToast('Records exported successfully.');
+    });
+    
+    //=============================================================================
+    // SEARCH & FILTER
+    //============================================================================= for modal
+    function performModalSearch() {
+      const searchTerm = document.getElementById('modalSearchInput').value.toLowerCase();
+      const columnFilter = document.getElementById('columnFilter').value;
+      
+      if (!searchTerm) {
+        modalFilteredRecords = [...records];
+      } else {
+        modalFilteredRecords = records.filter(record => {
+          if (columnFilter === 'all') {
+            return Object.values(record).some(value => 
+              value.toString().toLowerCase().includes(searchTerm)
+            );
+          } else {
+            return record[columnFilter].toString().toLowerCase().includes(searchTerm);
+          }
+        });
+      }
+      
+      modalCurrentPage = 1;
+      updateModalView();
+    }
+    
+    // Update modal view based on current settings
+    function updateModalView() {
+      if (modalCurrentView === 'table') {
+        renderModalTable();
+      } else {
+        renderExpandedView();
+      }
+      renderModalPagination();
+    }
+    
+    // Render table view in modal
+    function renderModalTable() {
+      modalTableContainer.innerHTML = '';
+      
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      const tbody = document.createElement('tbody');
+      
+      // Create table header
+      const headerRow = document.createElement('tr');
+      const keys = ['Ref No.', 'Serial No.', 'Part No.', 'Engineer No.', 'Call No.', 'Fault', 'Cause', 'Part Kept', 'SMC', 'Media', 'Site Details', 'Major Factor', 'Notes'];
+      
+      keys.forEach(key => {
+        const th = document.createElement('th');
+        th.setAttribute('data-key', key);
+        th.innerHTML = `${key}<span class="sort-indicator"></span>`;
+        
+        // Add sorting functionality
+        th.addEventListener('click', () => {
+          const order = modalCurrentSort.key === key && modalCurrentSort.order === 'asc' ? 'desc' : 'asc';
+          sortModalRecords(key, order);
+          modalCurrentSort = { key, order };
+          updateModalSortIndicators();
+          updateModalView();
+        });
+        
+        headerRow.appendChild(th);
+      });
+      
+      // Add action column
+      const actionHeader = document.createElement('th');
+      actionHeader.textContent = 'Action';
+      headerRow.appendChild(actionHeader);
+      
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+      
+      // Calculate pagination
+      const startIndex = (modalCurrentPage - 1) * modalRecordsPerPage;
+      const endIndex = startIndex + modalRecordsPerPage;
+      const paginatedRecords = modalFilteredRecords.slice(startIndex, endIndex);
+      
+      // Populate rows
+      const searchTerm = document.getElementById('modalSearchInput').value.toLowerCase();
+      
+      if (paginatedRecords.length === 0) {
+        const emptyRow = document.createElement('tr');
+        const emptyCell = document.createElement('td');
+        emptyCell.colSpan = keys.length + 1;
+        emptyCell.style.textAlign = 'center';
+        emptyCell.style.padding = '60px 20px';
+        // 4.5 IMPROVED EMPTY STATE FOR FILTERED RESULTS
+        emptyCell.innerHTML = `
+          <div style="color: var(--gray-500);">
+            <i class="fas fa-search" style="font-size: 48px; opacity: 0.3; margin-bottom: 16px;"></i>
+            <h3 style="color: var(--gray-800); font-size: 1.1rem; margin-bottom: 8px;">No Records Found</h3>
+            <p style="color: var(--gray-600);">No records match your current search criteria.<br>Try adjusting your filters or search terms.</p>
+          </div>
+        `;
+        emptyRow.appendChild(emptyCell);
+        tbody.appendChild(emptyRow);
+      } else {
+        paginatedRecords.forEach(record => {
+          const row = document.createElement('tr');
+          
+          keys.forEach(key => {
+            const cell = document.createElement('td');
+            
+            if (record[key]) {
+              if (searchTerm && record[key].toString().toLowerCase().includes(searchTerm)) {
+                // Highlight matching text
+                const text = record[key].toString();
+                const lowerText = text.toLowerCase();
+                const index = lowerText.indexOf(searchTerm);
+                
+                if (index >= 0) {
+                  const beforeMatch = text.substring(0, index);
+                  const match = text.substring(index, index + searchTerm.length);
+                  const afterMatch = text.substring(index + searchTerm.length);
+                  
+                  cell.innerHTML = `${escapeHTML(beforeMatch)}<span class="highlight">${escapeHTML(match)}</span>${escapeHTML(afterMatch)}`;
+                } else {
+                  cell.textContent = record[key];
+                }
+              } else {
+                cell.textContent = record[key];
+              }
+              
+              // Add tooltip for long content
+              if (record[key].toString().length > 20) {
+                cell.setAttribute('title', record[key]);
+              }
+            }
+            
+            row.appendChild(cell);
+          });
+          
+          // Add action buttons
+          const actionCell = document.createElement('td');
+          const actionsContainer = document.createElement('div');
+          actionsContainer.className = 'actions-container';
+          
+          const editButton = document.createElement('button');
+          editButton.innerHTML = '<i class="fas fa-edit action-icon"></i>Edit';
+          editButton.className = 'edit-btn';
+          editButton.addEventListener('click', () => {
+            // Find the record index in the main records array
+            const recordIndex = records.findIndex(r => r['Ref No.'] === record['Ref No.']);
+            if (recordIndex !== -1) {
+              // Close modal before editing
+              modal.style.display = 'none';
+              document.body.style.overflow = 'auto';
+              // Edit the record
+              editRecord(recordIndex);
+            }
+          });
+          actionsContainer.appendChild(editButton);
+          
+          actionCell.appendChild(actionsContainer);
+          row.appendChild(actionCell);
+          
+          tbody.appendChild(row);
+        });
+      }
+      
+      table.appendChild(tbody);
+      modalTableContainer.appendChild(table);
+      
+      // Update sort indicators
+      updateModalSortIndicators();
+    }
+    
+    // Render expanded card view
+    function renderExpandedView() {
+      expandedViewContainer.innerHTML = '';
+      
+      // Calculate pagination
+      const startIndex = (modalCurrentPage - 1) * modalRecordsPerPage;
+      const endIndex = startIndex + modalRecordsPerPage;
+      const paginatedRecords = modalFilteredRecords.slice(startIndex, endIndex);
+      
+      if (paginatedRecords.length === 0) {
+        const emptyMessage = document.createElement('div');
+        emptyMessage.style.gridColumn = '1 / -1';
+        emptyMessage.style.textAlign = 'center';
+        emptyMessage.style.padding = '50px';
+        emptyMessage.style.backgroundColor = 'white';
+        emptyMessage.style.borderRadius = 'var(--border-radius)';
+        emptyMessage.textContent = 'No records found';
+        expandedViewContainer.appendChild(emptyMessage);
+        return;
+      }
+      
+      // Create card for each record
+      paginatedRecords.forEach(record => {
+        const card = document.createElement('div');
+        card.className = 'record-card';
+        
+        // Card header
+        const cardHeader = document.createElement('div');
+        cardHeader.className = 'record-card-header';
+        
+        const cardTitle = document.createElement('div');
+        cardTitle.className = 'record-card-title';
+        cardTitle.textContent = `Ref: ${record['Ref No.']}`;
+        
+        const cardSubtitle = document.createElement('div');
+        cardSubtitle.className = 'record-card-subtitle';
+        cardSubtitle.textContent = `Serial: ${record['Serial No.']}`;
+        
+        cardHeader.appendChild(cardTitle);
+        cardHeader.appendChild(cardSubtitle);
+        card.appendChild(cardHeader);
+        
+        // Card body
+        const cardBody = document.createElement('div');
+        cardBody.className = 'record-card-body';
+        
+        // Add key-value pairs
+        const fieldsToShow = [
+          { key: 'Part No.', label: 'Part Number' },
+          { key: 'Engineer No.', label: 'Engineer' },
+          { key: 'Call No.', label: 'Call Number' },
+          { key: 'Fault', label: 'Fault' },
+          { key: 'Cause', label: 'Cause' },
+          { key: 'Part Kept', label: 'Part Kept' },
+          { key: 'SMC', label: 'SMC' },
+          { key: 'Media', label: 'Media' },
+          { key: 'Site Details', label: 'Site Details' },
+          { key: 'Major Factor', label: 'Major Factor' },
+          { key: 'Notes', label: 'Notes' }
+        ];
+        
+        fieldsToShow.forEach(field => {
+          if (record[field.key] && record[field.key].toString().trim() !== '') {
+            const item = document.createElement('div');
+            item.className = 'record-card-item';
+            
+            const label = document.createElement('div');
+            label.className = 'record-card-label';
+            label.textContent = field.label + ':';
+            
+            const value = document.createElement('div');
+            value.className = 'record-card-value';
+            value.textContent = record[field.key];
+            
+            item.appendChild(label);
+            item.appendChild(value);
+            cardBody.appendChild(item);
+          }
+        });
+        
+        card.appendChild(cardBody);
+        
+        // Card footer with actions
+        const cardFooter = document.createElement('div');
+        cardFooter.className = 'record-card-footer';
+        
+        const editButton = document.createElement('button');
+        editButton.innerHTML = '<i class="fas fa-edit action-icon"></i>Edit';
+        editButton.className = 'edit-btn';
+        editButton.addEventListener('click', () => {
+          // Find the record index in the main records array
+          const recordIndex = records.findIndex(r => r['Ref No.'] === record['Ref No.']);
+          if (recordIndex !== -1) {
+            // Close modal before editing
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            // Edit the record
+            editRecord(recordIndex);
+          }
+        });
+        
+        cardFooter.appendChild(editButton);
+        card.appendChild(cardFooter);
+        
+        expandedViewContainer.appendChild(card);
+      });
+    }
+    
+    // Sort records in modal
+    function sortModalRecords(key, order) {
+      modalFilteredRecords.sort((a, b) => {
+        const valA = (a[key] || '').toString().toLowerCase();
+        const valB = (b[key] || '').toString().toLowerCase();
+        
+        if (valA < valB) return order === 'asc' ? -1 : 1;
+        if (valA > valB) return order === 'asc' ? 1 : -1;
+        return 0;
+      });
+    }
+    
+    // Update sort indicators in modal
+    function updateModalSortIndicators() {
+      const headers = modalTableContainer.querySelectorAll('th[data-key]');
+      headers.forEach(header => {
+        const indicator = header.querySelector('.sort-indicator');
+        const key = header.getAttribute('data-key');
+        
+        if (modalCurrentSort.key === key) {
+          indicator.textContent = modalCurrentSort.order === 'asc' ? ' ▲' : ' ▼';
+        } else {
+          indicator.textContent = '';
+        }
+      });
+    }
+    
+    // Render pagination for modal
+    function renderModalPagination() {
+      const pagination = document.getElementById('modalPagination');
+      pagination.innerHTML = '';
+      
+      const totalPages = Math.ceil(modalFilteredRecords.length / modalRecordsPerPage);
+      if (totalPages <= 1) return;
+      
+      // Previous button
+      if (modalCurrentPage > 1) {
+        const prevBtn = document.createElement('button');
+        prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        prevBtn.addEventListener('click', () => {
+          modalCurrentPage--;
+          updateModalView();
+        });
+        pagination.appendChild(prevBtn);
+      }
+      
+      // Page numbers
+      let startPage = Math.max(1, modalCurrentPage - 2);
+      let endPage = Math.min(totalPages, startPage + 4);
+      
+      if (endPage - startPage < 4) {
+        startPage = Math.max(1, endPage - 4);
+      }
+      
+      // First page button if not in range
+      if (startPage > 1) {
+        const firstBtn = document.createElement('button');
+        firstBtn.textContent = '1';
+        firstBtn.addEventListener('click', () => {
+          modalCurrentPage = 1;
+          updateModalView();
+        });
+        pagination.appendChild(firstBtn);
+        
+        if (startPage > 2) {
+          const ellipsis = document.createElement('span');
+          ellipsis.textContent = '...';
+          ellipsis.style.margin = '0 5px';
+          pagination.appendChild(ellipsis);
+        }
+      }
+      
+      // Page buttons
+      for (let i = startPage; i <= endPage; i++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.textContent = i;
+        
+        if (i === modalCurrentPage) {
+          pageBtn.disabled = true;
+        }
+        
+        pageBtn.addEventListener('click', () => {
+          modalCurrentPage = i;
+          updateModalView();
+        });
+        pagination.appendChild(pageBtn);
+      }
+      
+      // Last page button if not in range
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+          const ellipsis = document.createElement('span');
+          ellipsis.textContent = '...';
+          ellipsis.style.margin = '0 5px';
+          pagination.appendChild(ellipsis);
+        }
+        
+        const lastBtn = document.createElement('button');
+        lastBtn.textContent = totalPages;
+        lastBtn.addEventListener('click', () => {
+          modalCurrentPage = totalPages;
+          updateModalView();
+        });
+        pagination.appendChild(lastBtn);
+      }
+      
+      // Add next button
+      if (modalCurrentPage < totalPages) {
+        const nextBtn = document.createElement('button');
+        nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        nextBtn.addEventListener('click', () => {
+          modalCurrentPage++;
+          updateModalView();
+        });
+        pagination.appendChild(nextBtn);
+      }
+    }
+
+    // Selection Management
+    let selectedRecords = new Set();
+
+    // Update selection banner
+    /**
+     * Update the selection banner display
+     * Shows count of selected records and updates checkbox state
+     */
+    function updateSelectionBanner() {
+      const banner = document.getElementById('selectionBanner');
+      const count = document.getElementById('selectionCount');
+      
+      // 4.4 SHOW RECORD COUNT - "X of Y records selected"
+      count.textContent = selectedRecords.size;
+      const selectionText = banner.querySelector('.selection-info span:last-child');
+      if (selectionText) {
+        selectionText.textContent = `of ${records.length} record(s) selected`;
+      }
+      
+      if (selectedRecords.size > 0) {
+        banner.classList.add('visible');
+      } else {
+        banner.classList.remove('visible');
+      }
+      
+      // Update select all checkbox state
+      const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+      if (selectAllCheckbox) {
+        selectAllCheckbox.checked = selectedRecords.size > 0 && selectedRecords.size === records.length;
+        selectAllCheckbox.indeterminate = selectedRecords.size > 0 && selectedRecords.size < records.length;
+      }
+    }
+
+    // Toggle individual record selection
+    //=============================================================================
+    // RECORD SELECTION & BULK ACTIONS
+    //=============================================================================
+    
+    function toggleRecordSelection(index) {
+      if (selectedRecords.has(index)) {
+        selectedRecords.delete(index);
+      } else {
+        selectedRecords.add(index);
+      }
+      updateSelectionBanner();
+    }
+
+    // Select all records
+    function selectAllRecords() {
+      selectedRecords.clear();
+      records.forEach((_, index) => selectedRecords.add(index));
+      updateSelectionBanner();
+      updatePreviewTable();
+    }
+
+    // Clear selection
+    function clearSelection() {
+      selectedRecords.clear();
+      updateSelectionBanner();
+      updatePreviewTable();
+    }
+
+    // Handle select all checkbox
+    document.addEventListener('DOMContentLoaded', function() {
+      const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+      if (selectAllCheckbox) {
+        selectAllCheckbox.addEventListener('change', function() {
+          if (this.checked) {
+            selectAllRecords();
+          } else {
+            clearSelection();
+          }
+        });
+      }
+    });
+
+    // Email selected records
+    function emailSelectedRecords() {
+      if (selectedRecords.size === 0) {
+        alert('⚠️ Please select at least one record to email.');
+        return;
+      }
+
+      const recordsToEmail = Array.from(selectedRecords).map(index => records[index]);
+      emailRecords(recordsToEmail);
+    }
+
+    // Generate CSV from records
+    function generateCSV(recordsToExport) {
+      const headers = ['Ref No.', 'Serial No.', 'Part No.', 'Engineer No.', 'Call No.', 'Fault', 'Cause', 'Part Kept', 'SMC', 'Media', 'Site Details', 'Major Factor', 'Notes'];
+      
+      let csv = headers.join(',') + '\n';
+      
+      recordsToExport.forEach(record => {
+        const row = headers.map(header => {
+          let value = record[header] || '';
+          // Escape quotes and wrap in quotes if contains comma, newline, or quote
+          if (value.includes(',') || value.includes('\n') || value.includes('"')) {
+            value = '"' + value.replace(/"/g, '""') + '"';
+          }
+          return value;
+        });
+        csv += row.join(',') + '\n';
+      });
+      
+      return csv;
+    }
+
+    // Main email function
+    //=============================================================================
+    // EMAIL FUNCTIONALITY
+    //=============================================================================
+    
+    function emailRecords(recordsToEmail) {
+      const now = new Date();
+      const timestamp = now.toLocaleString('en-GB', {
+        day: '2-digit',
+        month: '2-digit', 
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+
+      const count = recordsToEmail.length;
+      const emailSubject = `Triple P Report - ${count} Record${count > 1 ? 's' : ''} - ${timestamp}`;
+
+      let emailBody = `TRIPLE P REPORT SUBMISSION
+
+Date/Time: ${timestamp}
+Number of Records: ${count}
+
+`;
+
+      // If 3 or fewer records, include details in email body
+      if (count <= 3) {
+        // Ask user if they want to also download a CSV
+        const downloadCSV = confirm(`📧 Send ${count} record${count > 1 ? 's' : ''} via email\n\nThe record details will be included in the email body.\n\nWould you also like to download a CSV file to attach?`);
+        
+        if (downloadCSV) {
+          // Generate and download CSV
+          const csv = generateCSV(recordsToEmail);
+          const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+          const url = URL.createObjectURL(blob);
+          
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `Triple_P_Report_${new Date().toISOString().split('T')[0]}.csv`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          
+          // Update email body to mention the CSV
+          emailBody += `NOTE: A CSV file has been downloaded for your convenience.\n\n`;
+          emailBody += '='.repeat(60) + '\n\n';
+        } else {
+          emailBody += '='.repeat(60) + '\n\n';
+        }
+        
+        recordsToEmail.forEach((record, index) => {
+          emailBody += `RECORD ${index + 1}:\n`;
+          emailBody += `${'='.repeat(60)}\n`;
+          emailBody += `Ref No.: ${record['Ref No.']}\n`;
+          emailBody += `Serial No.: ${record['Serial No.']}\n`;
+          emailBody += `Part No.: ${record['Part No.']}\n`;
+          emailBody += `Engineer No.: ${record['Engineer No.'] || 'N/A'}\n`;
+          emailBody += `Call No.: ${record['Call No.'] || 'N/A'}\n`;
+          emailBody += `Fault: ${record['Fault']}\n`;
+          emailBody += `Cause: ${record['Cause']}\n`;
+          emailBody += `Part Kept: ${record['Part Kept']}\n`;
+          if (record['SMC'] && record['SMC'] !== 'No') emailBody += `SMC: ${record['SMC']}\n`;
+          if (record['Media'] && record['Media'] !== 'No') emailBody += `Media: ${record['Media']}\n`;
+          if (record['Site Details']) emailBody += `Site Details: ${record['Site Details']}\n`;
+          if (record['Major Factor']) emailBody += `Major Factor: ${record['Major Factor']}\n`;
+          if (record['Notes']) emailBody += `Notes: ${record['Notes']}\n`;
+          emailBody += '\n\n';
+        });
+
+        emailBody += `---
+This Triple P report was submitted via the Ricoh Triple P Form.
+Please review and take appropriate action.`;
+
+        // Open mailto link
+        const mailtoLink = `mailto:tdc@ricoh.co.uk?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        
+        try {
+          window.location.href = mailtoLink;
+          
+          setTimeout(() => {
+            if (downloadCSV) {
+              showToast(`✅ CSV downloaded & email client opened with ${count} record${count > 1 ? 's' : ''}!`);
+            } else {
+              showToast(`✅ Email client opened with ${count} record${count > 1 ? 's' : ''}!`);
+            }
+          }, 1000);
+        } catch (error) {
+          alert(`⚠️ Please send your Triple P report via email to: tdc@ricoh.co.uk\n\nSubject: ${emailSubject}`);
+        }
+
+      } else {
+        // For 4+ records, generate CSV and provide download
+        const csv = generateCSV(recordsToEmail);
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        
+        // Create download link
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `Triple_P_Report_${new Date().toISOString().split('T')[0]}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        // Email body with CSV attachment instructions
+        emailBody += `The full details of all ${count} records are available in the attached CSV file.
+
+SUMMARY:
+`;
+        recordsToEmail.slice(0, 10).forEach((record, index) => {
+          emailBody += `${index + 1}. Ref ${record['Ref No.']} - Serial: ${record['Serial No.']} - ${record['Fault'].substring(0, 40)}${record['Fault'].length > 40 ? '...' : ''}\n`;
+        });
+
+        if (count > 10) {
+          emailBody += `... and ${count - 10} more records\n`;
+        }
+
+        emailBody += `
+---
+⚠️ ATTACHMENT REQUIRED: Please attach the downloaded CSV file to this email.
+The CSV file has been automatically downloaded to your computer.
+
+This Triple P report was submitted via the Ricoh Triple P Form.
+Please review and take appropriate action.`;
+
+        const mailtoLink = `mailto:tdc@ricoh.co.uk?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        
+        try {
+          window.location.href = mailtoLink;
+          
+          setTimeout(() => {
+            showToast(`✅ CSV file downloaded! Please attach it to the email.`);
+          }, 1000);
+        } catch (error) {
+          alert(`⚠️ CSV file downloaded!\n\nPlease:\n1. Compose an email to: tdc@ricoh.co.uk\n2. Use subject: "${emailSubject}"\n3. Attach the downloaded CSV file\n4. Send the email`);
+        }
+      }
+    }
+
+  </script>
+</body>
+</html>

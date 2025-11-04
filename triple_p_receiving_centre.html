@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ricoh Triple P Record Receiving Centre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Enhanced Color Palette matching Triple P */
+    :root {
+      --ricoh-red: #ed171f;
+      --ricoh-red-light: #f5ebed;
+      --ricoh-dark: #1a1a1a;
+      --ricoh-gray: #6c757d;
+      
+      --primary-color: #0052cc;
+      --primary-hover: #003d99;
+      --primary-light: #e8f1ff;
+      
+      --gray-50: #fafbfc;
+      --gray-100: #f4f5f7;
+      --gray-200: #e4e6ea;
+      --gray-300: #c1c7d0;
+      --gray-500: #6c757d;
+      --gray-700: #42526e;
+      --gray-900: #091e42;
+      
+      --success-color: #00a854;
+      --success-light: #e8f5e8;
+      --warning-color: #ff8b00;
+      --warning-light: #fff4e6;
+      --error-color: #de350b;
+      --error-light: #ffebe6;
+      
+      --border-radius: 8px;
+      --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --primary-color: #4da3ff;
+      --primary-hover: #66b3ff;
+      --gray-50: #0a0a0a;
+      --gray-100: #121212;
+      --gray-200: #1e1e1e;
+      --gray-300: #2a2a2a;
+      --gray-500: #8a8a8a;
+      --gray-700: #c0c0c0;
+      --gray-900: #f0f0f0;
+      --success-color: #00e676;
+      --warning-color: #ffb74d;
+      --error-color: #ff5252;
+      --ricoh-red: #ff5555;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: var(--gray-50);
+      color: var(--gray-900);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, var(--ricoh-red) 0%, #c91118 100%);
+      color: white;
+      padding: 30px 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-stats {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px 20px;
+      border-radius: 6px;
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Action Bar */
+    .action-bar {
+      background: white;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      margin-bottom: 20px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    [data-theme="dark"] .action-bar {
+      background: var(--gray-100);
+    }
+
+    .btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 82, 204, 0.3);
+    }
+
+    .btn-success {
+      background: var(--success-color);
+    }
+
+    .btn-success:hover {
+      background: #008a45;
+      box-shadow: 0 4px 8px rgba(0, 168, 84, 0.3);
+    }
+
+    .btn-warning {
+      background: var(--warning-color);
+    }
+
+    .btn-warning:hover {
+      background: #e67e00;
+    }
+
+    .btn-danger {
+      background: var(--error-color);
+    }
+
+    .btn-danger:hover {
+      background: #c4320a;
+    }
+
+    .btn-secondary {
+      background: var(--gray-500);
+    }
+
+    .btn-secondary:hover {
+      background: var(--gray-700);
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    /* Search & Filter Section */
+    .filter-section {
+      background: white;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      margin-bottom: 20px;
+    }
+
+    [data-theme="dark"] .filter-section {
+      background: var(--gray-100);
+    }
+
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .filter-item {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .filter-item label {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--gray-700);
+    }
+
+    .filter-item input,
+    .filter-item select {
+      padding: 10px;
+      border: 1px solid var(--gray-300);
+      border-radius: 6px;
+      font-size: 1rem;
+      background: var(--gray-50);
+      color: var(--gray-900);
+    }
+
+    [data-theme="dark"] .filter-item input,
+    [data-theme="dark"] .filter-item select {
+      background: var(--gray-200);
+      border-color: var(--gray-300);
+    }
+
+    /* Records Table */
+    .records-container {
+      background: white;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow-x: auto;
+    }
+
+    [data-theme="dark"] .records-container {
+      background: var(--gray-100);
+    }
+
+    .records-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .records-table th,
+    .records-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .records-table th {
+      background: var(--gray-100);
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    [data-theme="dark"] .records-table th {
+      background: var(--gray-200);
+    }
+
+    .records-table tr:hover {
+      background: var(--gray-50);
+    }
+
+    [data-theme="dark"] .records-table tr:hover {
+      background: var(--gray-200);
+    }
+
+    /* Status Badge */
+    .status-select {
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--gray-300);
+      font-size: 0.85rem;
+      min-width: 180px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .status-noted {
+      background: var(--gray-200);
+      color: var(--gray-700);
+    }
+
+    .status-completed {
+      background: var(--success-light);
+      color: var(--success-color);
+    }
+
+    .status-open {
+      background: var(--warning-light);
+      color: var(--warning-color);
+    }
+
+    .status-awaiting {
+      background: var(--primary-light);
+      color: var(--primary-color);
+    }
+
+    .status-escalated {
+      background: var(--error-light);
+      color: var(--error-color);
+    }
+
+    /* Favourite Star */
+    .favourite-star {
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--gray-300);
+      transition: var(--transition);
+    }
+
+    .favourite-star.active {
+      color: #fbbf24;
+    }
+
+    .favourite-star:hover {
+      transform: scale(1.2);
+    }
+
+    /* Pattern Match Indicator */
+    .pattern-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 8px;
+      background: var(--warning-light);
+      color: var(--warning-color);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: var(--border-radius);
+      max-width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .modal-content {
+      background: var(--gray-100);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .modal-header h2 {
+      color: var(--primary-color);
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--gray-500);
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-modal:hover {
+      color: var(--error-color);
+    }
+
+    .record-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+    }
+
+    .detail-item {
+      padding: 12px;
+      background: var(--gray-50);
+      border-radius: 6px;
+      border-left: 3px solid var(--primary-color);
+    }
+
+    [data-theme="dark"] .detail-item {
+      background: var(--gray-200);
+    }
+
+    .detail-label {
+      font-weight: 600;
+      color: var(--gray-700);
+      font-size: 0.85rem;
+      margin-bottom: 5px;
+    }
+
+    .detail-value {
+      color: var(--gray-900);
+      font-size: 1rem;
+    }
+
+    .pattern-matches {
+      margin-top: 20px;
+      padding: 15px;
+      background: var(--warning-light);
+      border-radius: 6px;
+      border-left: 4px solid var(--warning-color);
+    }
+
+    .pattern-matches h3 {
+      color: var(--warning-color);
+      margin-bottom: 10px;
+    }
+
+    .match-item {
+      padding: 10px;
+      background: white;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .match-item:hover {
+      transform: translateX(5px);
+      box-shadow: var(--box-shadow);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--gray-900);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 2000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .toast.success {
+      background: var(--success-color);
+    }
+
+    .toast.error {
+      background: var(--error-color);
+    }
+
+    .toast.warning {
+      background: var(--warning-color);
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray-500);
+    }
+
+    .empty-state-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .empty-state h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    /* Loading Spinner */
+    .spinner {
+      border: 3px solid var(--gray-200);
+      border-top: 3px solid var(--primary-color);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      .action-bar {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .records-table {
+        font-size: 0.8rem;
+      }
+
+      .records-table th,
+      .records-table td {
+        padding: 8px;
+      }
+    }
+
+    /* Other Free Text Input */
+    .other-text-input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid var(--gray-300);
+      border-radius: 4px;
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+
+    [data-theme="dark"] .other-text-input {
+      background: var(--gray-300);
+      color: var(--gray-900);
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div>
+        <h1>
+          <span>📥</span>
+          Ricoh Triple P Record Receiving Centre
+        </h1>
+        <p style="margin-top: 10px; opacity: 0.9;">Central Hub for Triple P CSV Processing & Review</p>
+      </div>
+      <div class="header-stats">
+        <div class="stat-card">
+          <span class="stat-number" id="totalRecords">0</span>
+          <span class="stat-label">Total Records</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="favouriteCount">0</span>
+          <span class="stat-label">Favourites</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="patternCount">0</span>
+          <span class="stat-label">Patterns</span>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">🌓</button>
+      </div>
+    </div>
+
+    <!-- Action Bar -->
+    <div class="action-bar">
+      <label for="csvFileInput" class="btn btn-success">
+        📂 Import CSV Files
+      </label>
+      <input type="file" id="csvFileInput" accept=".csv" multiple>
+      
+      <button class="btn" onclick="showAllRecords()">
+        📋 View All Records
+      </button>
+      
+      <button class="btn btn-warning" onclick="showFavourites()">
+        ⭐ View Favourites
+      </button>
+      
+      <button class="btn" onclick="showPatterns()">
+        🔍 View Patterns
+      </button>
+      
+      <button class="btn btn-success" onclick="exportFilteredRecords()">
+        💾 Export Filtered CSV
+      </button>
+      
+      <button class="btn btn-danger" onclick="clearAllData()">
+        🗑️ Clear All Data
+      </button>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+      <h3 style="margin-bottom: 15px;">🔎 Search & Filter Records</h3>
+      <div class="filter-grid">
+        <div class="filter-item">
+          <label>Search</label>
+          <input type="text" id="searchInput" placeholder="Search any field..." oninput="applyFilters()">
+        </div>
+        <div class="filter-item">
+          <label>Status</label>
+          <select id="statusFilter" onchange="applyFilters()">
+            <option value="">All Statuses</option>
+            <option value="noted">Noted</option>
+            <option value="completed">Existing Issue Completed</option>
+            <option value="open">Existing Issue Open</option>
+            <option value="awaiting">New Issue - Awaiting Reports</option>
+            <option value="escalated">New Issue - Escalated</option>
+            <option value="other">Other</option>
+            <option value="unprocessed">Unprocessed</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label>Serial No.</label>
+          <input type="text" id="serialFilter" placeholder="Filter by Serial No." oninput="applyFilters()">
+        </div>
+        <div class="filter-item">
+          <label>Part No.</label>
+          <input type="text" id="partFilter" placeholder="Filter by Part No." oninput="applyFilters()">
+        </div>
+        <div class="filter-item">
+          <label>Show Only</label>
+          <select id="specialFilter" onchange="applyFilters()">
+            <option value="">All Records</option>
+            <option value="favourites">Favourites Only</option>
+            <option value="patterns">With Patterns Only</option>
+            <option value="unprocessed">Unprocessed Only</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label>&nbsp;</label>
+          <button class="btn btn-secondary" onclick="clearFilters()" style="width: 100%;">Clear Filters</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Records Table -->
+    <div class="records-container">
+      <div id="recordsContent">
+        <div class="empty-state">
+          <div class="empty-state-icon">📭</div>
+          <h3>No Records Yet</h3>
+          <p>Import CSV files to get started</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Record Detail Modal -->
+  <div id="recordModal" class="modal">
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 id="modalTitle">Record Details</h2>
+        <button class="close-modal" onclick="closeModal()">&times;</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <script>
+    // Database name for the Receiving Centre (separate from Triple P)
+    const DB_NAME = 'TriplePReceivingCentre';
+    const DB_VERSION = 1;
+    const STORE_NAME = 'records';
+    let db;
+
+    // Application state
+    let allRecords = [];
+    let filteredRecords = [];
+
+    //=============================================================================
+    // DATABASE INITIALIZATION
+    //=============================================================================
+    
+    function initDB() {
+      return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+        
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => {
+          db = request.result;
+          resolve(db);
+        };
+        
+        request.onupgradeneeded = (event) => {
+          const db = event.target.result;
+          
+          if (!db.objectStoreNames.contains(STORE_NAME)) {
+            const objectStore = db.createObjectStore(STORE_NAME, { keyPath: 'id', autoIncrement: true });
+            objectStore.createIndex('refNo', 'refNo', { unique: false });
+            objectStore.createIndex('serialNo', 'serialNo', { unique: false });
+            objectStore.createIndex('partNo', 'partNo', { unique: false });
+            objectStore.createIndex('status', 'status', { unique: false });
+            objectStore.createIndex('favourite', 'favourite', { unique: false });
+            objectStore.createIndex('importDate', 'importDate', { unique: false });
+          }
+        };
+      });
+    }
+
+    //=============================================================================
+    // CSV IMPORT & PROCESSING
+    //=============================================================================
+    
+    document.getElementById('csvFileInput').addEventListener('change', handleFileSelect);
+
+    async function handleFileSelect(event) {
+      const files = event.target.files;
+      if (files.length === 0) return;
+
+      showToast(`Processing ${files.length} file(s)...`, 'info');
+      let totalImported = 0;
+      let totalDuplicates = 0;
+
+      for (let file of files) {
+        const result = await processCSVFile(file);
+        totalImported += result.imported;
+        totalDuplicates += result.duplicates;
+      }
+
+      await loadAllRecords();
+      updateStats();
+      applyFilters();
+
+      showToast(`✅ Import complete! ${totalImported} new records added, ${totalDuplicates} duplicates skipped.`, 'success');
+      
+      // Reset file input
+      event.target.value = '';
+    }
+
+    function processCSVFile(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        
+        reader.onload = async (e) => {
+          const text = e.target.result;
+          const records = parseCSV(text);
+          
+          let imported = 0;
+          let duplicates = 0;
+
+          for (let record of records) {
+            // Check if record already exists by Ref No.
+            const exists = await checkDuplicateRef(record['Ref No.']);
+            
+            if (!exists) {
+              await addRecord({
+                refNo: record['Ref No.'],
+                serialNo: record['Serial No.'],
+                partNo: record['Part No.'],
+                engineerNo: record['Engineer No.'],
+                callNo: record['Call No.'],
+                fault: record['Fault'],
+                cause: record['Cause'],
+                partKept: record['Part Kept'],
+                smc: record['SMC'],
+                media: record['Media'],
+                siteDetails: record['Site Details'],
+                majorFactor: record['Major Factor'],
+                notes: record['Notes'],
+                status: '',
+                statusOther: '',
+                favourite: false,
+                importDate: new Date().toISOString(),
+                sourceFile: file.name
+              });
+              imported++;
+            } else {
+              duplicates++;
+            }
+          }
+
+          resolve({ imported, duplicates });
+        };
+
+        reader.readAsText(file);
+      });
+    }
+
+    function parseCSV(text) {
+      const lines = text.split('\n').filter(line => line.trim());
+      if (lines.length < 2) return [];
+
+      const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+      const records = [];
+
+      for (let i = 1; i < lines.length; i++) {
+        const values = parseCSVLine(lines[i]);
+        if (values.length === headers.length) {
+          const record = {};
+          headers.forEach((header, index) => {
+            record[header] = values[index].trim().replace(/^"|"$/g, '');
+          });
+          records.push(record);
+        }
+      }
+
+      return records;
+    }
+
+    function parseCSVLine(line) {
+      const result = [];
+      let current = '';
+      let inQuotes = false;
+
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+        
+        if (char === '"') {
+          if (inQuotes && line[i + 1] === '"') {
+            current += '"';
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (char === ',' && !inQuotes) {
+          result.push(current);
+          current = '';
+        } else {
+          current += char;
+        }
+      }
+      
+      result.push(current);
+      return result;
+    }
+
+    //=============================================================================
+    // DATABASE OPERATIONS
+    //=============================================================================
+    
+    function addRecord(record) {
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readwrite');
+        const objectStore = transaction.objectStore(STORE_NAME);
+        const request = objectStore.add(record);
+        
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    function checkDuplicateRef(refNo) {
+      return new Promise((resolve) => {
+        const transaction = db.transaction([STORE_NAME], 'readonly');
+        const objectStore = transaction.objectStore(STORE_NAME);
+        const index = objectStore.index('refNo');
+        const request = index.get(refNo);
+        
+        request.onsuccess = () => resolve(request.result !== undefined);
+        request.onerror = () => resolve(false);
+      });
+    }
+
+    function loadAllRecords() {
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readonly');
+        const objectStore = transaction.objectStore(STORE_NAME);
+        const request = objectStore.getAll();
+        
+        request.onsuccess = () => {
+          allRecords = request.result;
+          resolve(allRecords);
+        };
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    function updateRecord(id, updates) {
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readwrite');
+        const objectStore = transaction.objectStore(STORE_NAME);
+        const request = objectStore.get(id);
+        
+        request.onsuccess = () => {
+          const record = request.result;
+          Object.assign(record, updates);
+          const updateRequest = objectStore.put(record);
+          updateRequest.onsuccess = () => resolve();
+          updateRequest.onerror = () => reject(updateRequest.error);
+        };
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    function deleteRecord(id) {
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], 'readwrite');
+        const objectStore = transaction.objectStore(STORE_NAME);
+        const request = objectStore.delete(id);
+        
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    //=============================================================================
+    // PATTERN MATCHING
+    //=============================================================================
+    
+    function findPatterns(record) {
+      const patterns = [];
+      
+      allRecords.forEach(other => {
+        if (other.id === record.id) return;
+        
+        let matchScore = 0;
+        let matchFields = [];
+        
+        // Check for matching fields
+        if (record.serialNo && other.serialNo === record.serialNo) {
+          matchScore += 3;
+          matchFields.push('Serial No.');
+        }
+        
+        if (record.partNo && other.partNo === record.partNo) {
+          matchScore += 2;
+          matchFields.push('Part No.');
+        }
+        
+        if (record.fault && other.fault && 
+            record.fault.toLowerCase().includes(other.fault.toLowerCase()) || 
+            other.fault.toLowerCase().includes(record.fault.toLowerCase())) {
+          matchScore += 2;
+          matchFields.push('Fault');
+        }
+        
+        if (record.cause && other.cause && 
+            record.cause.toLowerCase().includes(other.cause.toLowerCase()) || 
+            other.cause.toLowerCase().includes(record.cause.toLowerCase())) {
+          matchScore += 1;
+          matchFields.push('Cause');
+        }
+        
+        if (matchScore >= 2) {
+          patterns.push({
+            record: other,
+            score: matchScore,
+            fields: matchFields
+          });
+        }
+      });
+      
+      return patterns.sort((a, b) => b.score - a.score);
+    }
+
+    //=============================================================================
+    // UI RENDERING
+    //=============================================================================
+    
+    function renderRecords(records) {
+      const container = document.getElementById('recordsContent');
+      
+      if (records.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">🔍</div>
+            <h3>No Records Found</h3>
+            <p>Try adjusting your filters</p>
+          </div>
+        `;
+        return;
+      }
+
+      let html = `
+        <table class="records-table">
+          <thead>
+            <tr>
+              <th>⭐</th>
+              <th>Ref No.</th>
+              <th>Serial No.</th>
+              <th>Part No.</th>
+              <th>Fault</th>
+              <th>Status</th>
+              <th>Patterns</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      records.forEach(record => {
+        const patterns = findPatterns(record);
+        const statusClass = record.status ? `status-${record.status}` : '';
+        const statusText = getStatusText(record.status, record.statusOther);
+        
+        html += `
+          <tr>
+            <td>
+              <span class="favourite-star ${record.favourite ? 'active' : ''}" 
+                    onclick="toggleFavourite(${record.id})">
+                ${record.favourite ? '⭐' : '☆'}
+              </span>
+            </td>
+            <td><strong>${record.refNo}</strong></td>
+            <td>${record.serialNo}</td>
+            <td>${record.partNo}</td>
+            <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+              ${record.fault}
+            </td>
+            <td>
+              <select class="status-select" onchange="updateStatus(${record.id}, this.value)">
+                <option value="" ${!record.status ? 'selected' : ''}>-- Select Status --</option>
+                <option value="noted" ${record.status === 'noted' ? 'selected' : ''}>Noted</option>
+                <option value="completed" ${record.status === 'completed' ? 'selected' : ''}>Existing Issue Completed</option>
+                <option value="open" ${record.status === 'open' ? 'selected' : ''}>Existing Issue Open</option>
+                <option value="awaiting" ${record.status === 'awaiting' ? 'selected' : ''}>New Issue - Awaiting Reports</option>
+                <option value="escalated" ${record.status === 'escalated' ? 'selected' : ''}>New Issue - Escalated</option>
+                <option value="other" ${record.status === 'other' ? 'selected' : ''}>Other</option>
+              </select>
+              ${record.status === 'other' ? `
+                <input type="text" class="other-text-input" 
+                       value="${record.statusOther || ''}" 
+                       placeholder="Enter status details..."
+                       onblur="updateStatusOther(${record.id}, this.value)">
+              ` : ''}
+            </td>
+            <td>
+              ${patterns.length > 0 ? 
+                `<span class="pattern-indicator">🔍 ${patterns.length} match${patterns.length > 1 ? 'es' : ''}</span>` 
+                : '-'}
+            </td>
+            <td>
+              <button class="btn" style="padding: 6px 12px; font-size: 0.85rem;" 
+                      onclick="viewRecordDetails(${record.id})">
+                View Details
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+
+      html += `
+          </tbody>
+        </table>
+      `;
+
+      container.innerHTML = html;
+    }
+
+    function getStatusText(status, statusOther) {
+      const statusMap = {
+        'noted': 'Noted',
+        'completed': 'Existing Issue Completed',
+        'open': 'Existing Issue Open',
+        'awaiting': 'New Issue - Awaiting Reports',
+        'escalated': 'New Issue - Escalated',
+        'other': statusOther || 'Other'
+      };
+      return statusMap[status] || 'Unprocessed';
+    }
+
+    //=============================================================================
+    // RECORD DETAILS MODAL
+    //=============================================================================
+    
+    async function viewRecordDetails(id) {
+      const record = allRecords.find(r => r.id === id);
+      if (!record) return;
+
+      const patterns = findPatterns(record);
+      
+      let html = `
+        <div class="record-details">
+          <div class="detail-item">
+            <div class="detail-label">Ref No.</div>
+            <div class="detail-value">${record.refNo}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Serial No.</div>
+            <div class="detail-value">${record.serialNo}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Part No.</div>
+            <div class="detail-value">${record.partNo}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Engineer No.</div>
+            <div class="detail-value">${record.engineerNo || 'N/A'}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Call No.</div>
+            <div class="detail-value">${record.callNo || 'N/A'}</div>
+          </div>
+          <div class="detail-item" style="grid-column: 1 / -1;">
+            <div class="detail-label">Fault</div>
+            <div class="detail-value">${record.fault}</div>
+          </div>
+          <div class="detail-item" style="grid-column: 1 / -1;">
+            <div class="detail-label">Cause</div>
+            <div class="detail-value">${record.cause}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Part Kept</div>
+            <div class="detail-value">${record.partKept}</div>
+          </div>
+          ${record.smc && record.smc !== 'No' ? `
+          <div class="detail-item">
+            <div class="detail-label">SMC</div>
+            <div class="detail-value">${record.smc}</div>
+          </div>
+          ` : ''}
+          ${record.media && record.media !== 'No' ? `
+          <div class="detail-item">
+            <div class="detail-label">Media</div>
+            <div class="detail-value">${record.media}</div>
+          </div>
+          ` : ''}
+          ${record.siteDetails ? `
+          <div class="detail-item" style="grid-column: 1 / -1;">
+            <div class="detail-label">Site Details</div>
+            <div class="detail-value">${record.siteDetails}</div>
+          </div>
+          ` : ''}
+          ${record.majorFactor ? `
+          <div class="detail-item">
+            <div class="detail-label">Major Factor</div>
+            <div class="detail-value">${record.majorFactor}</div>
+          </div>
+          ` : ''}
+          ${record.notes ? `
+          <div class="detail-item" style="grid-column: 1 / -1;">
+            <div class="detail-label">Notes</div>
+            <div class="detail-value">${record.notes}</div>
+          </div>
+          ` : ''}
+          <div class="detail-item">
+            <div class="detail-label">Import Date</div>
+            <div class="detail-value">${new Date(record.importDate).toLocaleString()}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Source File</div>
+            <div class="detail-value">${record.sourceFile}</div>
+          </div>
+          <div class="detail-item">
+            <div class="detail-label">Status</div>
+            <div class="detail-value">${getStatusText(record.status, record.statusOther)}</div>
+          </div>
+        </div>
+      `;
+
+      if (patterns.length > 0) {
+        html += `
+          <div class="pattern-matches">
+            <h3>🔍 Pattern Matches (${patterns.length} found)</h3>
+            <p style="margin-bottom: 15px;">Similar records that may be related:</p>
+        `;
+        
+        patterns.slice(0, 10).forEach(pattern => {
+          const otherFav = pattern.record.favourite ? '⭐' : '';
+          html += `
+            <div class="match-item" onclick="viewRecordDetails(${pattern.record.id})">
+              <strong>${otherFav} Ref: ${pattern.record.refNo}</strong> - 
+              Serial: ${pattern.record.serialNo} - 
+              Match Score: ${pattern.score} 
+              (${pattern.fields.join(', ')})
+              <br>
+              <small style="color: var(--gray-500);">${pattern.record.fault.substring(0, 100)}...</small>
+            </div>
+          `;
+        });
+        
+        if (patterns.length > 10) {
+          html += `<p style="margin-top: 10px; color: var(--gray-500);">... and ${patterns.length - 10} more matches</p>`;
+        }
+        
+        html += `</div>`;
+      }
+
+      document.getElementById('modalTitle').textContent = `Record Details: ${record.refNo}`;
+      document.getElementById('modalBody').innerHTML = html;
+      document.getElementById('recordModal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('recordModal').classList.remove('active');
+    }
+
+    //=============================================================================
+    // STATUS MANAGEMENT
+    //=============================================================================
+    
+    async function updateStatus(id, status) {
+      await updateRecord(id, { status });
+      await loadAllRecords();
+      applyFilters();
+      showToast('✅ Status updated', 'success');
+    }
+
+    async function updateStatusOther(id, text) {
+      await updateRecord(id, { statusOther: text });
+      await loadAllRecords();
+      showToast('✅ Status details saved', 'success');
+    }
+
+    //=============================================================================
+    // FAVOURITE MANAGEMENT
+    //=============================================================================
+    
+    async function toggleFavourite(id) {
+      const record = allRecords.find(r => r.id === id);
+      await updateRecord(id, { favourite: !record.favourite });
+      await loadAllRecords();
+      updateStats();
+      applyFilters();
+    }
+
+    //=============================================================================
+    // FILTERING
+    //=============================================================================
+    
+    function applyFilters() {
+      const searchText = document.getElementById('searchInput').value.toLowerCase();
+      const statusFilter = document.getElementById('statusFilter').value;
+      const serialFilter = document.getElementById('serialFilter').value.toLowerCase();
+      const partFilter = document.getElementById('partFilter').value.toLowerCase();
+      const specialFilter = document.getElementById('specialFilter').value;
+
+      filteredRecords = allRecords.filter(record => {
+        // Search filter
+        if (searchText) {
+          const searchableText = Object.values(record).join(' ').toLowerCase();
+          if (!searchableText.includes(searchText)) return false;
+        }
+
+        // Status filter
+        if (statusFilter) {
+          if (statusFilter === 'unprocessed') {
+            if (record.status) return false;
+          } else {
+            if (record.status !== statusFilter) return false;
+          }
+        }
+
+        // Serial filter
+        if (serialFilter && !record.serialNo.toLowerCase().includes(serialFilter)) {
+          return false;
+        }
+
+        // Part filter
+        if (partFilter && !record.partNo.toLowerCase().includes(partFilter)) {
+          return false;
+        }
+
+        // Special filters
+        if (specialFilter === 'favourites' && !record.favourite) return false;
+        if (specialFilter === 'patterns' && findPatterns(record).length === 0) return false;
+        if (specialFilter === 'unprocessed' && record.status) return false;
+
+        return true;
+      });
+
+      renderRecords(filteredRecords);
+    }
+
+    function clearFilters() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('statusFilter').value = '';
+      document.getElementById('serialFilter').value = '';
+      document.getElementById('partFilter').value = '';
+      document.getElementById('specialFilter').value = '';
+      applyFilters();
+    }
+
+    function showAllRecords() {
+      clearFilters();
+      showToast('Showing all records', 'info');
+    }
+
+    function showFavourites() {
+      clearFilters();
+      document.getElementById('specialFilter').value = 'favourites';
+      applyFilters();
+      showToast('Showing favourite records', 'info');
+    }
+
+    function showPatterns() {
+      clearFilters();
+      document.getElementById('specialFilter').value = 'patterns';
+      applyFilters();
+      showToast('Showing records with patterns', 'info');
+    }
+
+    //=============================================================================
+    // EXPORT FUNCTIONALITY
+    //=============================================================================
+    
+    function exportFilteredRecords() {
+      if (filteredRecords.length === 0) {
+        showToast('⚠️ No records to export', 'warning');
+        return;
+      }
+
+      const headers = [
+        'Ref No.', 'Serial No.', 'Part No.', 'Engineer No.', 'Call No.',
+        'Fault', 'Cause', 'Part Kept', 'SMC', 'Media', 'Site Details',
+        'Major Factor', 'Notes', 'Status', 'Status Details', 'Favourite',
+        'Import Date', 'Source File'
+      ];
+
+      let csv = headers.join(',') + '\n';
+
+      filteredRecords.forEach(record => {
+        const row = [
+          record.refNo,
+          record.serialNo,
+          record.partNo,
+          record.engineerNo || '',
+          record.callNo || '',
+          record.fault,
+          record.cause,
+          record.partKept,
+          record.smc || '',
+          record.media || '',
+          record.siteDetails || '',
+          record.majorFactor || '',
+          record.notes || '',
+          getStatusText(record.status, record.statusOther),
+          record.statusOther || '',
+          record.favourite ? 'Yes' : 'No',
+          new Date(record.importDate).toLocaleString(),
+          record.sourceFile
+        ].map(value => {
+          const str = String(value);
+          if (str.includes(',') || str.includes('\n') || str.includes('"')) {
+            return '"' + str.replace(/"/g, '""') + '"';
+          }
+          return str;
+        });
+
+        csv += row.join(',') + '\n';
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `Triple_P_Export_${new Date().toISOString().split('T')[0]}_${filteredRecords.length}_records.csv`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+
+      showToast(`✅ Exported ${filteredRecords.length} records`, 'success');
+    }
+
+    //=============================================================================
+    // STATS & UI UPDATES
+    //=============================================================================
+    
+    function updateStats() {
+      document.getElementById('totalRecords').textContent = allRecords.length;
+      document.getElementById('favouriteCount').textContent = allRecords.filter(r => r.favourite).length;
+      
+      let patternCount = 0;
+      allRecords.forEach(record => {
+        if (findPatterns(record).length > 0) patternCount++;
+      });
+      document.getElementById('patternCount').textContent = patternCount;
+    }
+
+    //=============================================================================
+    // THEME TOGGLE
+    //=============================================================================
+    
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.setAttribute('data-theme', savedTheme);
+
+    //=============================================================================
+    // TOAST NOTIFICATIONS
+    //=============================================================================
+    
+    function showToast(message, type = 'info') {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = `toast ${type} show`;
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    //=============================================================================
+    // DATA MANAGEMENT
+    //=============================================================================
+    
+    async function clearAllData() {
+      if (!confirm('⚠️ Are you sure you want to delete ALL records? This cannot be undone!')) {
+        return;
+      }
+
+      if (!confirm('⚠️ FINAL WARNING: This will permanently delete all records. Continue?')) {
+        return;
+      }
+
+      const transaction = db.transaction([STORE_NAME], 'readwrite');
+      const objectStore = transaction.objectStore(STORE_NAME);
+      await objectStore.clear();
+
+      await loadAllRecords();
+      updateStats();
+      applyFilters();
+      
+      showToast('✅ All records cleared', 'success');
+    }
+
+    //=============================================================================
+    // INITIALIZATION
+    //=============================================================================
+    
+    async function initialize() {
+      try {
+        await initDB();
+        await loadAllRecords();
+        updateStats();
+        applyFilters();
+        showToast('✅ System ready', 'success');
+      } catch (error) {
+        console.error('Initialization error:', error);
+        showToast('⚠️ Error initializing database', 'error');
+      }
+    }
+
+    // Close modal on outside click
+    document.getElementById('recordModal').addEventListener('click', (e) => {
+      if (e.target.id === 'recordModal') {
+        closeModal();
+      }
+    });
+
+    // Start the application
+    initialize();
+  </script>
+</body>
+</html>
